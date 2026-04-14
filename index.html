@@ -1,10 +1,106 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de-CH">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Frag Alex – Hilfe rund ums Haus</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Frag Alex | Dein Allrounder für Haus, Garten & Küche in Zürich</title>
+<meta name="description" content="Alex hilft bei Gartenarbeit, Reparaturen, Kochen und Besorgungen im Raum Zürich & Toggenburg. Zuverlässig, flexibel, persönlich. Jetzt unverbindlich anfragen.">
+<meta name="keywords" content="Hauswart Zürich, Handwerker Zürich, Gartenarbeit Zürich, Privatkoch Zürich, Haushaltshilfe Zürich, Allrounder Haus Garten">
+<meta name="author" content="Frag Alex">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://miheinecke.github.io/frag-alex/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Frag Alex – Dein Allrounder für Haus, Garten & Küche">
+<meta property="og:description" content="Gartenarbeit, Reparaturen, Kochen, Besorgungen – Alex packt an. Zuverlässig im Raum Zürich & Toggenburg.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://miheinecke.github.io/frag-alex/">
+<meta property="og:locale" content="de_CH">
+<meta property="og:site_name" content="Frag Alex">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Frag Alex",
+  "description": "Allrounder für Haus, Garten, Küche und Besorgungen im Raum Zürich und Toggenburg.",
+  "url": "https://miheinecke.github.io/frag-alex/",
+  "telephone": "+41762882024",
+  "email": "alex@superpraktisch.ch",
+  "areaServed": [
+    {"@type": "City", "name": "Zürich"},
+    {"@type": "Place", "name": "Zürich Agglomeration"},
+    {"@type": "Place", "name": "Toggenburg"}
+  ],
+  "priceRange": "CHF 120–820",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "07:00",
+    "closes": "19:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Dienstleistungen",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Gartenarbeit & Aussenpflege"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reparaturen & Handwerk"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Kochen & Catering"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Besorgungen & Transporte"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Haushalt & Umzugshilfe"}}
+    ]
+  }
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Was kostet eine Stunde bei Frag Alex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Stundensatz liegt bei CHF 120. Für einen halben Tag (ca. 4 Stunden) berechne ich CHF 420, für einen ganzen Tag (ca. 8 Stunden) CHF 820. Kocheinsätze und Langzeitprojekte kalkuliere ich individuell."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "In welchem Gebiet ist Alex tätig?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hauptsächlich in der Stadt Zürich und der Agglomeration. Für grössere Projekte komme ich auch ins Toggenburg. Die Anfahrt bis 30 Minuten ab Langnau am Albis ist kostenlos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie schnell kann Alex einen Termin einrichten?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oft klappt es innerhalb weniger Tage, bei dringenden Anfragen manchmal schon am nächsten Tag. Am besten einfach per WhatsApp oder Telefon melden – ich antworte in der Regel innert weniger Stunden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Zahlungsmethoden akzeptiert Alex?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bezahlung ist per Twint, Banküberweisung oder bar möglich – ganz wie es am besten passt."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
   :root {
     --green-deep: #1a3d2b;
@@ -14,53 +110,700 @@
     --green-pale: #d8f3dc;
     --green-tint: #f0faf2;
     --cream: #faf8f4;
+    --warm-white: #fffef9;
     --text: #1a2e1e;
-    --text-muted: #5a7263;
+    --text-muted: #4a6553;
+    --text-light: #6b8a76;
+    --shadow-sm: 0 2px 8px rgba(26,61,43,0.06);
+    --shadow-md: 0 4px 20px rgba(26,61,43,0.1);
+    --shadow-lg: 0 12px 40px rgba(26,61,43,0.12);
+    --radius: 16px;
+    --radius-sm: 10px;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); line-height: 1.7; }
 
-  /* NAV */
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.2rem 2rem;
+    padding: 1rem 2rem;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(250,248,244,0.93);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(45,106,79,0.1);
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(45,106,79,0.08);
+    transition: padding 0.3s;
   }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--green-deep); font-weight: 600; }
-  .nav-cta { background: var(--green-mid); color: white; padding: 0.5rem 1.3rem; border-radius: 50px; text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--green-deep); }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    color: var(--green-deep);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green-mid); }
+  .nav-cta {
+    background: var(--green-mid);
+    color: white !important;
+    padding: 0.55rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(45,106,79,0.2);
+  }
+  .nav-cta:hover { background: var(--green-deep); transform: translateY(-1px); }
 
-  /* HERO */
+  /* ── HERO ── */
   .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 7rem 2rem 4rem;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 7rem 2rem 5rem;
     background:
-      radial-gradient(ellipse at 80% 20%, rgba(116,198,157,0.18) 0%, transparent 60%),
-      radial-gradient(ellipse at 10% 80%, rgba(45,106,79,0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 75% 15%, rgba(116,198,157,0.15) 0%, transparent 55%),
+      radial-gradient(ellipse at 15% 85%, rgba(45,106,79,0.08) 0%, transparent 45%),
       var(--cream);
     position: relative; overflow: hidden;
   }
   .hero::before {
-    content: ''; position: absolute; top: -60px; right: -60px;
-    width: 320px; height: 320px; border-radius: 50%;
-    background: var(--green-pale); opacity: 0.5; z-index: 0;
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: var(--green-pale); opacity: 0.35;
   }
-  .hero-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; animation: fadeUp 0.8s ease both; }
-  .hero-tag { display: inline-block; background: var(--green-pale); color: var(--green-mid); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem; }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 6vw, 4rem); line-height: 1.15; color: var(--green-deep); margin-bottom: 1.5rem; }
+  .hero::after {
+    content: ''; position: absolute; bottom: -120px; left: -60px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: var(--green-tint); opacity: 0.4;
+  }
+  .hero-inner {
+    max-width: 720px; margin: 0 auto;
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--green-pale);
+    color: var(--green-mid);
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 0.45rem 1.1rem; border-radius: 50px;
+    margin-bottom: 1.8rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    line-height: 1.12;
+    color: var(--green-deep);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
   .hero h1 em { font-style: normal; color: var(--green-bright); }
-  .hero-sub { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 480px; font-weight: 300; }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 520px;
+    font-weight: 400;
+    line-height: 1.8;
+  }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--green-mid); color: white; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 1rem; transition: all 0.2s; box-shadow: 0 4px 20px rgba(45,106,79,0.25); }
-  .btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 6px 24px rgba(45,106,79,0.35); }
-  .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--green-mid); text-decoration: none; font-weight: 500; font-size: 1rem; border-bottom: 1.5px solid var(--green-light); padding-bottom: 2px; transition: color 0.2s; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--green-mid); color: white;
+    padding: 1rem 2.2rem; border-radius: 50px;
+    text-decoration: none; font-weight: 600; font-size: 1rem;
+    transition: all 0.25s;
+    box-shadow: 0 4px 20px rgba(45,106,79,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--green-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(45,106,79,0.35);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    color: var(--green-mid); text-decoration: none;
+    font-weight: 600; font-size: 1rem;
+    transition: color 0.2s;
+  }
   .btn-secondary:hover { color: var(--green-deep); }
+  .btn-secondary::after { content: ' →'; }
 
-  /* SECTIONS */
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--warm-white);
+    border-top: 1px solid rgba(45,106,79,0.06);
+    border-bottom: 1px solid rgba(45,106,79,0.06);
+    padding: 1.5rem 2rem;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
+  }
+  .trust-icon { font-size: 1.1rem; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 6rem 2rem; max-width: 820px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green-bright); margin-bottom: 0.6rem;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--green-deep);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .section-intro {
+    font-size: 1.1rem; color: var(--text-muted);
+    margin-bottom: 3rem; max-width: 560px;
+    font-weight: 400; line-height: 1.8;
+  }
+  .divider { width: 48px; height: 3px; background: var(--green-light); border-radius: 2px; margin: 0 0 2.5rem; }
+
+  /* ── LEISTUNGEN ── */
+  .leistungen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .leistung-card {
+    background: white;
+    border: 1px solid rgba(45,106,79,0.08);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .leistung-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--green-light);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .leistung-card:hover::before { transform: scaleX(1); }
+  .leistung-card:hover {
+    border-color: var(--green-light);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .leistung-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .leistung-card h3 {
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--green-deep); margin-bottom: 0.75rem;
+  }
+  .leistung-card ul { list-style: none; padding: 0; }
+  .leistung-card ul li {
+    font-size: 0.88rem; color: var(--text-muted);
+    line-height: 1.65; padding-left: 1.1rem; position: relative;
+    margin-bottom: 0.15rem;
+  }
+  .leistung-card ul li::before {
+    content: ''; position: absolute; left: 0; top: 0.55em;
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--green-light);
+  }
+
+  /* ── ABLAUF ── */
+  .ablauf-section { background: var(--green-tint); padding: 6rem 2rem; }
+  .ablauf-inner { max-width: 700px; margin: 0 auto; }
+  .steps { display: flex; flex-direction: column; gap: 0; }
+  .step {
+    display: flex; gap: 1.5rem; align-items: flex-start;
+    padding-bottom: 2.5rem; position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: ''; position: absolute;
+    left: 23px; top: 52px; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--green-light), var(--green-pale));
+  }
+  .step-num {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green-mid); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 1.1rem;
+    flex-shrink: 0; z-index: 1;
+    box-shadow: 0 3px 12px rgba(45,106,79,0.2);
+  }
+  .step-body h3 {
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--green-deep); margin-bottom: 0.35rem; padding-top: 10px;
+  }
+  .step-body p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── PREIS ── */
+  .preis-section { background: var(--green-deep); color: white; padding: 6rem 2rem; }
+  .preis-inner { max-width: 820px; margin: 0 auto; }
+  .preis-section .section-label { color: var(--green-light); }
+  .preis-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+  .preis-section .section-intro { color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; }
+  .preis-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem; margin-bottom: 2rem;
+  }
+  .preis-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(116,198,157,0.2);
+    border-radius: var(--radius); padding: 1.75rem;
+    transition: all 0.25s;
+  }
+  .preis-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(116,198,157,0.4);
+    transform: translateY(-2px);
+  }
+  .preis-card h3 {
+    font-size: 0.8rem; color: var(--green-light);
+    font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .preis-betrag {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem; color: white; margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .preis-betrag span {
+    font-size: 1rem; font-family: 'DM Sans', sans-serif;
+    font-weight: 300; opacity: 0.6;
+  }
+  .preis-card p { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  .preis-note {
+    font-size: 0.9rem; color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+  }
+
+  /* ── ÜBER ALEX ── */
+  .about-section { padding: 6rem 2rem; max-width: 900px; margin: 0 auto; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem; align-items: start;
+  }
+  .about-photo {
+    width: 280px; height: 340px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+  }
+  .about-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top;
+    filter: saturate(0.9) contrast(1.02);
+  }
+  .about-photo::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: var(--radius);
+    box-shadow: inset 0 0 0 1px rgba(45,106,79,0.1);
+  }
+  .about-text p {
+    font-size: 1.05rem; color: var(--text-muted);
+    margin-bottom: 1.3rem; font-weight: 400; line-height: 1.8;
+  }
+  .about-highlights {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;
+  }
+  .highlight-pill {
+    background: var(--green-pale);
+    border: 1px solid rgba(45,106,79,0.1);
+    color: var(--green-mid);
+    padding: 0.45rem 1.1rem;
+    border-radius: 50px;
+    font-size: 0.85rem; font-weight: 500;
+  }
+
+  /* ── FAQ ── */
+  .faq-section { background: var(--warm-white); padding: 6rem 2rem; }
+  .faq-inner { max-width: 680px; margin: 0 auto; }
+  .faq-item {
+    border-bottom: 1px solid rgba(45,106,79,0.1);
+    padding: 1.5rem 0;
+  }
+  .faq-item:first-of-type { border-top: 1px solid rgba(45,106,79,0.1); }
+  .faq-q {
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--green-deep); margin-bottom: 0.6rem;
+    cursor: default;
+  }
+  .faq-a { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* ── EINSATZGEBIET ── */
+  .gebiet-band { background: var(--green-tint); padding: 3.5rem 2rem; text-align: center; }
+  .gebiet-band p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+  .gebiet-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
+  .gebiet-tag {
+    background: white; border: 1px solid rgba(45,106,79,0.15);
+    color: var(--green-mid); padding: 0.5rem 1.2rem;
+    border-radius: 50px; font-size: 0.9rem; font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ── KONTAKT ── */
+  .kontakt-section { padding: 6rem 2rem; max-width: 700px; margin: 0 auto; text-align: center; }
+  .kontakt-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    color: var(--green-deep); margin-bottom: 1rem;
+  }
+  .kontakt-section > p { color: var(--text-muted); margin-bottom: 2.5rem; font-size: 1.1rem; line-height: 1.8; }
+  .kontakt-cards { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.5rem; }
+  .kontakt-card {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: white; border: 1px solid rgba(45,106,79,0.1);
+    border-radius: 14px; padding: 1.1rem 1.6rem;
+    text-decoration: none; color: var(--text); font-weight: 500;
+    transition: all 0.25s; font-size: 0.95rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .kontakt-card:hover {
+    border-color: var(--green-mid); background: var(--green-tint);
+    transform: translateY(-3px); box-shadow: var(--shadow-md);
+  }
+  .kontakt-icon { font-size: 1.4rem; }
+  .kontakt-sub { font-size: 0.8rem; color: var(--text-light); font-weight: 400; }
+  .kontakt-note { font-size: 0.9rem; color: var(--text-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-deep);
+    color: rgba(255,255,255,0.35);
+    text-align: center;
+    padding: 2rem; font-size: 0.8rem;
+  }
+  footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+  footer a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+    .about-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .about-photo { width: 220px; height: 270px; }
+    .about-highlights { justify-content: center; }
+  }
+  @media (max-width: 520px) {
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .kontakt-cards { flex-direction: column; align-items: center; }
+    .preis-cards { grid-template-columns: 1fr; }
+    .trust-bar { gap: 1rem; }
+    .trust-item { font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Frag Alex</span>
+  <div class="nav-links">
+    <a href="#leistungen">Angebot</a>
+    <a href="#preise">Preise</a>
+    <a href="#alex">Über Alex</a>
+    <a href="#kontakt" class="nav-cta">Jetzt anfragen</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Zürich &amp; Toggenburg</span>
+    <h1>Einfach <em>Alex fragen</em> –<br>er hilft gerne.</h1>
+    <p class="hero-sub">Gartenarbeit, Reparaturen, ein mehrgängiges Dinner oder der volle Keller: Alex packt an, wo du Unterstützung brauchst. Persönlich, zuverlässig und mit ehrlicher Freude an guter Arbeit.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/41762882024" class="btn-primary" aria-label="Alex per WhatsApp kontaktieren">
+        <span>💬</span> Via WhatsApp melden
+      </a>
+      <a href="#leistungen" class="btn-secondary">Was Alex alles macht</a>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" role="complementary" aria-label="Vertrauensindikatoren">
+  <div class="trust-item"><span class="trust-icon">⚡</span> Kurzfristig verfügbar</div>
+  <div class="trust-item"><span class="trust-icon">📍</span> Raum Zürich</div>
+  <div class="trust-item"><span class="trust-icon">🤝</span> Empfohlen von Kunden</div>
+  <div class="trust-item"><span class="trust-icon">💳</span> Twint, Bar oder Überweisung</div>
+</div>
+
+<!-- LEISTUNGEN -->
+<section class="section" id="leistungen" aria-labelledby="leistungen-title">
+  <p class="section-label">Angebot</p>
+  <h2 id="leistungen-title">Was kann ich für dich tun?</h2>
+  <p class="section-intro">Von der Hecke bis zum Festessen: Ich bin dort, wo Hände und Erfahrung gefragt sind. Und wenn du unsicher bist, ob etwas in mein Repertoire fällt – frag einfach.</p>
+  <div class="divider"></div>
+  <div class="leistungen-grid">
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">🌿</span>
+      <h3>Garten &amp; Aussenpflege</h3>
+      <ul>
+        <li>Rasenmähen, Hecken schneiden</li>
+        <li>Beete anlegen und bepflanzen</li>
+        <li>Herbst- und Wintervorbereitung</li>
+        <li>Aufräumen, Entsorgung, Holzarbeiten</li>
+      </ul>
+    </article>
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">🔧</span>
+      <h3>Reparaturen &amp; Handwerk</h3>
+      <ul>
+        <li>Kleine Reparaturen im und ums Haus</li>
+        <li>Möbel montieren und aufbauen</li>
+        <li>Bilder, Regale, Lampen aufhängen</li>
+        <li>Handwerker koordinieren</li>
+      </ul>
+    </article>
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">🍳</span>
+      <h3>Kochen mit Leidenschaft</h3>
+      <ul>
+        <li>Dinner und Anlässe bis 20 Personen</li>
+        <li>Meal Prep für die ganze Woche</li>
+        <li>Einkauf und Menüplanung inklusive</li>
+        <li>Vegetarisch, vegan – kein Problem</li>
+      </ul>
+    </article>
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">🛒</span>
+      <h3>Besorgungen &amp; Transporte</h3>
+      <ul>
+        <li>Einkäufe und Behördengänge</li>
+        <li>Möbel- und Sperrguttransporte</li>
+        <li>Pakete abholen und liefern</li>
+        <li>Fahrdienste auf Anfrage</li>
+      </ul>
+    </article>
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">🏠</span>
+      <h3>Haus &amp; Haushalt</h3>
+      <ul>
+        <li>Aufräumen und Entrümpeln</li>
+        <li>Umzugshilfe von A bis Z</li>
+        <li>Keller und Estrich räumen</li>
+        <li>Grundreinigungen</li>
+      </ul>
+    </article>
+    <article class="leistung-card">
+      <span class="leistung-icon" aria-hidden="true">✨</span>
+      <h3>Und was du sonst brauchst</h3>
+      <ul>
+        <li>Ferienbetreuung für Haus und Garten</li>
+        <li>Gesellschaft und Alltagsbegleitung</li>
+        <li>Individuelle Anfragen willkommen</li>
+        <li>Machbar? Dann bin ich dabei.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section class="ablauf-section" aria-labelledby="ablauf-title">
+  <div class="ablauf-inner">
+    <p class="section-label">So läuft's ab</p>
+    <h2 id="ablauf-title">Unkompliziert von Anfang an.</h2>
+    <p class="section-intro">Kein Papierkram, keine langen Wartezeiten. Eine kurze Nachricht reicht – den Rest klären wir persönlich.</p>
+    <div class="divider"></div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-body">
+          <h3>Meld dich, wie's dir passt</h3>
+          <p>Per WhatsApp, Anruf oder E-Mail. Ein paar Zeilen genügen; formlos ist völlig okay. Ich freue mich auf jede Nachricht.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-body">
+          <h3>Kurzes Gespräch, klare Abmachung</h3>
+          <p>Ich melde mich innert Stunden zurück. Wir besprechen, was du brauchst, und einigen uns auf Termin und Preis. Das dauert meistens wenige Minuten.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-body">
+          <h3>Alex kommt – und packt an</h3>
+          <p>Pünktlich zum vereinbarten Zeitpunkt bin ich vor Ort. Ärmel hoch, los geht's. Du lehnst dich zurück; darum kümmere ich mich.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">4</div>
+        <div class="step-body">
+          <h3>Sauber erledigt, fair abgerechnet</h3>
+          <p>Nach dem Einsatz bekommst du eine klare Abrechnung. Bezahlen kannst du per Twint, Überweisung oder bar – wie du magst.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREISE -->
+<section class="preis-section" id="preise" aria-labelledby="preise-title">
+  <div class="preis-inner">
+    <p class="section-label">Preise</p>
+    <h2 id="preise-title">Faire Preise, keine Überraschungen.</h2>
+    <p class="section-intro">Abrechnung nach Aufwand – transparent und ehrlich. Bei grösseren Projekten vereinbaren wir gerne eine Pauschale.</p>
+    <div class="preis-cards">
+      <div class="preis-card">
+        <h3>Stundensatz</h3>
+        <div class="preis-betrag">CHF 120 <span>/ Std.</span></div>
+        <p>Einzeleinsätze und kleinere Aufgaben. Mindestens 1 Stunde.</p>
+      </div>
+      <div class="preis-card">
+        <h3>Halber Tag</h3>
+        <div class="preis-betrag">CHF 420 <span>/ ~4h</span></div>
+        <p>Garten, Umzugshilfe oder grössere Aufräumaktionen.</p>
+      </div>
+      <div class="preis-card">
+        <h3>Ganzer Tag</h3>
+        <div class="preis-betrag">CHF 820 <span>/ ~8h</span></div>
+        <p>Projekte, die Raum und Zeit zum Durcharbeiten brauchen.</p>
+      </div>
+      <div class="preis-card">
+        <h3>Kochen &amp; Spezial</h3>
+        <div class="preis-betrag">auf Anfrage</div>
+        <p>Kocheinsätze, Events und Langzeitprojekte kalkuliere ich individuell.</p>
+      </div>
+    </div>
+    <p class="preis-note">Anfahrt bis 30 Min. ab Langnau am Albis kostenlos · Keine Zusatzkosten ohne Absprache · Offerte jederzeit möglich</p>
+  </div>
+</section>
+
+<!-- ÜBER ALEX -->
+<section class="about-section" id="alex" aria-labelledby="alex-title">
+  <p class="section-label">Über mich</p>
+  <h2 id="alex-title">Hallo, ich bin Alex.</h2>
+  <div class="divider"></div>
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="alex.jpg" alt="Alex – Allrounder für Haus, Garten und Küche im Raum Zürich" width="280" height="340" loading="lazy">
+    </div>
+    <div>
+      <div class="about-text">
+        <p>Ich bin jemand, der gerne anpackt. Egal ob im Garten, in der Küche oder beim Heimwerken: Was ich tue, mache ich gründlich, mit Sorgfalt und einem guten Schuss Humor.</p>
+        <p>Kochen hat bei mir einen besonderen Stellenwert. Seit Jahren stehe ich leidenschaftlich am Herd – für ein feines Dinner unter Freunden genauso wie für die praktische Meal Prep unter der Woche.</p>
+        <p>Viele meiner Kunden kommen über persönliche Empfehlungen. Darauf bin ich stolz, weil es zeigt: Die Zusammenarbeit funktioniert. Ich reagiere schnell, bin flexibel und halte, was ich verspreche.</p>
+      </div>
+      <div class="about-highlights">
+        <span class="highlight-pill">✔ Zuverlässig &amp; pünktlich</span>
+        <span class="highlight-pill">✔ Vielseitig einsetzbar</span>
+        <span class="highlight-pill">✔ Leidenschaftlicher Koch</span>
+        <span class="highlight-pill">✔ Handwerklich geschickt</span>
+        <span class="highlight-pill">✔ Kurzfristig verfügbar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" aria-labelledby="faq-title">
+  <div class="faq-inner">
+    <p class="section-label">Häufige Fragen</p>
+    <h2 id="faq-title">Gut zu wissen</h2>
+    <div class="divider"></div>
+    <div class="faq-item">
+      <h3 class="faq-q">Was kostet eine Stunde bei Frag Alex?</h3>
+      <p class="faq-a">Der Stundensatz liegt bei CHF 120. Für einen halben Tag (ca. 4 Stunden) berechne ich CHF 420, für einen ganzen Tag CHF 820. Kocheinsätze und Langzeitprojekte kalkuliere ich individuell – am besten einfach anfragen.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Wie schnell kann Alex einen Termin einrichten?</h3>
+      <p class="faq-a">Oft klappt es innerhalb weniger Tage; bei dringenden Sachen manchmal schon am nächsten Tag. Am besten per WhatsApp melden – ich antworte in der Regel innert Stunden.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">In welchem Gebiet ist Alex unterwegs?</h3>
+      <p class="faq-a">Hauptsächlich in der Stadt Zürich und der Agglomeration. Für grössere Projekte komme ich auch ins Toggenburg. Die Anfahrt bis 30 Minuten ab Langnau am Albis ist kostenlos.</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-q">Wie kann ich bezahlen?</h3>
+      <p class="faq-a">Per Twint, Banküberweisung oder bar – ganz wie es dir am liebsten ist. Du bekommst nach jedem Einsatz eine übersichtliche Abrechnung.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EINSATZGEBIET -->
+<section class="gebiet-band" aria-labelledby="gebiet-title">
+  <p class="section-label" id="gebiet-title" style="display:block; text-align:center; margin-bottom:0.5rem;">Einsatzgebiet</p>
+  <p>Unterwegs im Raum Zürich – für grössere Projekte auch im Toggenburg.</p>
+  <div class="gebiet-tags">
+    <span class="gebiet-tag">📍 Zürich Stadt</span>
+    <span class="gebiet-tag">📍 Zürich Agglomeration</span>
+    <span class="gebiet-tag">📍 Langnau am Albis</span>
+    <span class="gebiet-tag">📍 Toggenburg (auf Anfrage)</span>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="kontakt-section" id="kontakt" aria-labelledby="kontakt-title">
+  <p class="section-label">Kontakt</p>
+  <h2 id="kontakt-title">Einfach fragen –<br>ich melde mich.</h2>
+  <p>Schreib mir per WhatsApp oder E-Mail. Ich antworte innert weniger Stunden und wir finden gemeinsam die passende Lösung.</p>
+  <div class="kontakt-cards">
+    <a href="https://wa.me/41762882024" class="kontakt-card" aria-label="Alex per WhatsApp kontaktieren">
+      <span class="kontakt-icon">💬</span>
+      <div>
+        <div>WhatsApp</div>
+        <div class="kontakt-sub">076 288 20 24</div>
+      </div>
+    </a>
+    <a href="tel:+41762882024" class="kontakt-card" aria-label="Alex anrufen">
+      <span class="kontakt-icon">📞</span>
+      <div>
+        <div>Anrufen</div>
+        <div class="kontakt-sub">076 288 20 24</div>
+      </div>
+    </a>
+    <a href="mailto:alex@superpraktisch.ch" class="kontakt-card" aria-label="Alex per E-Mail kontaktieren">
+      <span class="kontakt-icon">✉️</span>
+      <div>
+        <div>E-Mail</div>
+        <div class="kontakt-sub">alex@superpraktisch.ch</div>
+      </div>
+    </a>
+  </div>
+  <p class="kontakt-note">Antwort in der Regel innert weniger Stunden.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Frag Alex · Allrounder für Haus, Garten &amp; Küche · <a href="#kontakt">Kontakt</a></p>
+</footer>
+
+</body>
+</html>  /* SECTIONS */
   .section { padding: 5rem 2rem; max-width: 780px; margin: 0 auto; }
   .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.75rem; }
   .section h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--green-deep); margin-bottom: 1rem; line-height: 1.2; }
