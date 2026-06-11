@@ -21,7 +21,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 
 <!-- Schema.org LocalBusiness -->
 <script type="application/ld+json">
@@ -102,51 +102,53 @@
 </script>
 
 <style>
-  /* ════════════════════ DESIGN TOKENS ════════════════════ */
+  /* ════════════════════ DESIGN TOKENS · British Racing Green ════════════════════ */
   :root {
     --bg: #FAF7F2;
     --bg-elevated: #FFFFFF;
-    --bg-tint: #EEF6EF;
-    --ink: #13251A;
-    --ink-muted: #46604F;
-    --brand: #2D6A4F;
-    --brand-deep: #143D2A;
-    --brand-darker: #0F2D1F;
-    --brand-bright: #3E8E68;
-    --brand-soft: #D8F3DC;
-    --accent: #C2702E;
-    --accent-on-dark: #F0A35E;
+    --bg-tint: #EDF5EE;
+    --ink: #122019;
+    --ink-muted: #44604F;
+    --brand: #10654A;
+    --brand-deep: #07402C;
+    --brand-darker: #032A1D;
+    --brand-bright: #2E9168;
+    --brand-soft: #D9F2E2;
+    --accent: #B06A24;
+    --accent-on-dark: #F0B26A;
     --wood: #E5B266;
     --wood-deep: #C98F3D;
-    --line: rgba(45,106,79,0.14);
+    --paper: #F6EFD9;
+    --line: rgba(16,101,74,0.15);
     --glass: rgba(255,255,255,0.62);
     --glass-line: rgba(255,255,255,0.5);
     --cream-on-dark: #F4FAF5;
-    --muted-on-dark: rgba(244,250,245,0.76);
-    --shadow-sm: 0 2px 8px rgba(20,61,42,0.06);
-    --shadow-md: 0 8px 30px rgba(20,61,42,0.10);
-    --shadow-lg: 0 20px 50px rgba(20,61,42,0.14);
+    --muted-on-dark: rgba(244,250,245,0.78);
+    --shadow-sm: 0 2px 8px rgba(3,42,29,0.07);
+    --shadow-md: 0 8px 30px rgba(3,42,29,0.11);
+    --shadow-lg: 0 20px 50px rgba(3,42,29,0.16);
     --r-sm: 14px;
     --r-md: 20px;
     --r-lg: 28px;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --serif: 'Fraunces', Georgia, serif;
     --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --hand: 'Caveat', cursive;
   }
   html[data-theme="dark"] {
-    --bg: #0C1812;
-    --bg-elevated: #13241B;
-    --bg-tint: #101F17;
+    --bg: #0B1712;
+    --bg-elevated: #122119;
+    --bg-tint: #0F1D16;
     --ink: #E8F2EA;
-    --ink-muted: #9DBBA8;
-    --brand: #5CB386;
-    --brand-deep: #0F2D1F;
-    --brand-darker: #0A1F15;
-    --brand-bright: #6FC598;
-    --brand-soft: rgba(92,179,134,0.16);
-    --accent: #F0A35E;
+    --ink-muted: #9CBBA9;
+    --brand: #57BA8C;
+    --brand-deep: #07402C;
+    --brand-darker: #042016;
+    --brand-bright: #6FCB9A;
+    --brand-soft: rgba(87,186,140,0.16);
+    --accent: #F0B26A;
     --line: rgba(140,200,165,0.16);
-    --glass: rgba(19,36,27,0.6);
+    --glass: rgba(18,33,25,0.6);
     --glass-line: rgba(140,200,165,0.18);
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
     --shadow-md: 0 8px 30px rgba(0,0,0,0.4);
@@ -167,7 +169,7 @@
     overflow-x: clip;
   }
   ::selection { background: var(--brand-soft); color: var(--brand-deep); }
-  html[data-theme="dark"] ::selection { background: rgba(92,179,134,0.35); color: #E8F2EA; }
+  html[data-theme="dark"] ::selection { background: rgba(87,186,140,0.35); color: #E8F2EA; }
 
   a, button, summary { touch-action: manipulation; }
   button { cursor: pointer; font-family: inherit; }
@@ -176,8 +178,8 @@
     outline-offset: 3px;
     border-radius: 4px;
   }
+  img { display: block; }
 
-  /* Korn-Textur über allem – gibt Tiefe & Handwerks-Haptik */
   .grain {
     position: fixed; inset: -50%; z-index: 999; pointer-events: none;
     width: 200%; height: 200%;
@@ -197,7 +199,6 @@
 
   .icon { width: 1.25em; height: 1.25em; flex-shrink: 0; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* Scroll-Progress */
   .progress {
     position: fixed; top: 0; left: 0; height: 3px; width: 0;
     background: linear-gradient(90deg, var(--brand-bright), var(--wood));
@@ -238,16 +239,13 @@
   .nav-links > a:not(.btn):hover { color: var(--brand); }
   .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
 
-  /* Nav über dunklem Hero */
   .nav.on-dark:not(.solid) .nav-logo { color: var(--cream-on-dark); }
   .nav.on-dark:not(.solid) .nav-logo .dot { color: #7FD3A7; }
   .nav.on-dark:not(.solid) .nav-links > a:not(.btn) { color: var(--muted-on-dark); }
   .nav.on-dark:not(.solid) .nav-links > a:not(.btn):hover { color: #fff; }
   .nav.on-dark:not(.solid) .theme-toggle { color: var(--muted-on-dark); border-color: rgba(244,250,245,0.25); }
   .nav.on-dark:not(.solid) .menu-btn { color: var(--cream-on-dark); border-color: rgba(244,250,245,0.25); }
-  .nav.on-dark.solid {
-    background: rgba(15,45,31,0.72);
-  }
+  .nav.on-dark.solid { background: rgba(3,42,29,0.74); }
   .nav.on-dark.solid .nav-logo { color: var(--cream-on-dark); }
   .nav.on-dark.solid .nav-links > a:not(.btn) { color: var(--muted-on-dark); }
   .nav.on-dark.solid .nav-links > a:not(.btn):hover { color: #fff; }
@@ -283,9 +281,9 @@
   }
   .btn:active { transform: scale(0.97); }
   .btn-primary {
-    background: linear-gradient(135deg, #3E8E68 0%, #2D6A4F 55%, #1F5740 100%);
+    background: linear-gradient(135deg, #27815C 0%, #10654A 55%, #0B4D37 100%);
     color: #fff; padding: 1rem 2.2rem;
-    box-shadow: 0 6px 24px rgba(45,106,79,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
+    box-shadow: 0 6px 24px rgba(7,64,44,0.4), inset 0 1px 0 rgba(255,255,255,0.18);
   }
   .btn-primary::after {
     content: '';
@@ -295,7 +293,7 @@
     transform: skewX(-20deg);
     transition: left 0.6s var(--ease);
   }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(45,106,79,0.5), inset 0 1px 0 rgba(255,255,255,0.18); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(7,64,44,0.5), inset 0 1px 0 rgba(255,255,255,0.18); }
   .btn-primary:hover::after { left: 130%; }
   .btn-nav { padding: 0.6rem 1.4rem; font-size: 0.9rem; min-height: 44px; }
   .btn-ghost {
@@ -333,37 +331,45 @@
     display: flex; align-items: center; justify-content: center; color: var(--ink);
   }
 
-  /* ════════════════════ HERO – cinematisch, immer dunkel ════════════════════ */
+  /* ════════════════════ HERO · echtes Farn-Foto + BRG ════════════════════ */
   .hero {
     min-height: 100svh;
     display: flex; flex-direction: column; justify-content: center;
     padding: clamp(7rem, 13vh, 9rem) clamp(1.25rem, 4vw, 2.5rem) 7rem;
     position: relative; overflow: hidden;
-    background:
-      radial-gradient(ellipse 90% 60% at 70% -10%, rgba(92,179,134,0.28) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 5% 100%, rgba(240,163,94,0.10) 0%, transparent 55%),
-      linear-gradient(165deg, var(--brand-darker) 0%, var(--brand-deep) 55%, #0E2A1D 100%);
+    background: var(--brand-darker);
     color: var(--cream-on-dark);
+  }
+  .hero-bg {
+    position: absolute; inset: -12% 0;
+    width: 100%; height: 124%;
+    object-fit: cover; object-position: center;
+    will-change: transform;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 55% at 72% 0%, rgba(46,145,104,0.32) 0%, transparent 60%),
+      linear-gradient(165deg, rgba(3,42,29,0.93) 0%, rgba(7,64,44,0.84) 55%, rgba(4,38,26,0.95) 100%);
   }
   .hero-glow {
     position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none;
     animation: drift 14s ease-in-out infinite alternate;
   }
-  .hero-glow.g1 { width: 620px; height: 620px; top: -220px; right: -140px; background: radial-gradient(circle, rgba(92,179,134,0.3), transparent 65%); }
-  .hero-glow.g2 { width: 460px; height: 460px; bottom: -180px; left: -140px; background: radial-gradient(circle, rgba(240,163,94,0.14), transparent 65%); animation-delay: -7s; }
+  .hero-glow.g1 { width: 560px; height: 560px; top: -200px; right: -120px; background: radial-gradient(circle, rgba(87,186,140,0.25), transparent 65%); }
+  .hero-glow.g2 { width: 440px; height: 440px; bottom: -180px; left: -140px; background: radial-gradient(circle, rgba(240,178,106,0.13), transparent 65%); animation-delay: -7s; }
   @keyframes drift {
     from { transform: translate3d(0,0,0) scale(1); }
     to { transform: translate3d(40px, 30px, 0) scale(1.08); }
   }
 
-  /* Selbstzeichnende Werkzeug-Linienkunst */
   .hero-tools { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
   .hero-tools svg {
     position: absolute;
-    stroke: rgba(244,250,245,0.14);
+    stroke: rgba(244,250,245,0.16);
     fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
   }
-  .hero-tools .draw path, .hero-tools .draw circle, .hero-tools .draw line {
+  .hero-tools .draw path {
     stroke-dasharray: 600; stroke-dashoffset: 600;
     animation: draw 2.6s var(--ease) forwards;
   }
@@ -409,7 +415,7 @@
   @keyframes rise { to { transform: translateY(0); } }
   .hero h1 em {
     font-style: italic; font-weight: 500;
-    background: linear-gradient(110deg, #8FE3B6 0%, #5CB386 45%, var(--accent-on-dark) 110%);
+    background: linear-gradient(110deg, #8FE3B6 0%, #57BA8C 45%, var(--accent-on-dark) 110%);
     -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent; color: #8FE3B6;
   }
@@ -426,12 +432,12 @@
 
   /* Chat – tippt sich selbst */
   .hero-chat {
-    background: rgba(244,250,245,0.07);
+    background: rgba(3,42,29,0.45);
     backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(244,250,245,0.16);
+    border: 1px solid rgba(244,250,245,0.18);
     border-radius: var(--r-lg);
     padding: 1.6rem;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08);
     display: flex; flex-direction: column; gap: 0.95rem;
     max-width: 410px;
     justify-self: end; width: 100%;
@@ -445,7 +451,7 @@
   }
   .chat-avatar {
     width: 44px; height: 44px; border-radius: 50%;
-    background: linear-gradient(135deg, #5CB386, #1F5740);
+    background: linear-gradient(135deg, #57BA8C, #0B4D37);
     color: #fff; font-family: var(--serif); font-weight: 600; font-size: 1.2rem;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 0 0 2px rgba(143,227,182,0.3);
@@ -466,13 +472,13 @@
   }
   @keyframes bubbleIn { to { opacity: 1; transform: translateY(0) scale(1); } }
   .chat-bubble.them {
-    background: rgba(244,250,245,0.12);
+    background: rgba(244,250,245,0.13);
     border: 1px solid rgba(244,250,245,0.1);
     border-bottom-left-radius: 5px; align-self: flex-start;
     color: #EFF7F1;
   }
   .chat-bubble.me {
-    background: linear-gradient(135deg, #3E8E68, #25604A);
+    background: linear-gradient(135deg, #27815C, #14543C);
     color: #fff;
     border-bottom-right-radius: 5px; align-self: flex-end;
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
@@ -498,7 +504,6 @@
   @keyframes dotBounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
   .chat-time { font-size: 0.7rem; opacity: 0.6; display: block; text-align: right; margin-top: 2px; }
 
-  /* Scroll-Hinweis */
   .scroll-hint {
     position: absolute; bottom: 5.5rem; left: 50%; transform: translateX(-50%);
     color: rgba(244,250,245,0.5); z-index: 1;
@@ -517,7 +522,7 @@
     background: linear-gradient(90deg, var(--wood-deep), var(--wood) 30%, var(--wood) 70%, var(--wood-deep));
     transform: rotate(-1.3deg) scale(1.03);
     padding: 1rem 0;
-    box-shadow: 0 14px 40px rgba(20,61,42,0.25);
+    box-shadow: 0 14px 40px rgba(3,42,29,0.28);
     border-top: 2px solid rgba(255,255,255,0.35);
     border-bottom: 2px solid rgba(90,55,10,0.35);
     display: flex; overflow: hidden;
@@ -580,28 +585,31 @@
     margin-bottom: 3.25rem; max-width: 580px; line-height: 1.8;
   }
 
-  /* ════════════════════ LEISTUNGEN – BENTO ════════════════════ */
+  /* ════════════════════ LEISTUNGEN · Foto-Bento (Werkstatt-Pinnwand) ════════════════════ */
   .bento {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(190px, auto);
-    gap: 1.2rem;
+    gap: 1.4rem;
   }
   .bento-card {
+    --rot: 0deg;
     background: var(--bg-elevated);
     border: 1px solid var(--line);
     border-radius: var(--r-md);
     padding: 1.8rem;
-    position: relative; overflow: hidden;
+    position: relative;
     transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.3s;
     transform-style: preserve-3d;
     will-change: transform;
     display: flex; flex-direction: column;
   }
+  .bento-card:nth-of-type(odd) { --rot: -0.7deg; }
+  .bento-card:nth-of-type(even) { --rot: 0.6deg; }
   .bento-card:hover { box-shadow: var(--shadow-lg); border-color: var(--brand-bright); }
   .bento-card .card-glow {
     position: absolute; inset: 0; opacity: 0; pointer-events: none;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(92,179,134,0.13), transparent 65%);
+    border-radius: var(--r-md);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(46,145,104,0.13), transparent 65%);
     transition: opacity 0.3s;
   }
   .bento-card:hover .card-glow { opacity: 1; }
@@ -612,17 +620,56 @@
   .b-rest ul { display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; }
   .b-rest li { margin-bottom: 0; }
 
+  /* Echte Fotos mit Klebeband */
+  .bento-photo {
+    margin: -1.8rem -1.8rem 1.3rem;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: calc(var(--r-md) - 1px) calc(var(--r-md) - 1px) 0 0;
+    background: var(--brand-soft);
+  }
+  .bento-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+  }
+  .bento-card:hover .bento-photo img { transform: scale(1.06); }
+  .bento-photo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(3,42,29,0.55) 0%, transparent 42%);
+  }
+  .photo-caption {
+    position: absolute; bottom: 0.5rem; left: 1.1rem; z-index: 1;
+    font-family: var(--hand); font-weight: 600;
+    font-size: 1.65rem; color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+    transform: rotate(-2deg);
+  }
+  .tape {
+    position: absolute; top: -13px; left: 50%; z-index: 3;
+    width: 96px; height: 28px;
+    background: linear-gradient(rgba(246,239,217,0.82), rgba(235,224,186,0.72));
+    box-shadow: 0 2px 6px rgba(3,42,29,0.15);
+    transform: translateX(-50%) rotate(-3.5deg);
+    border-left: 1px dashed rgba(180,160,110,0.4);
+    border-right: 1px dashed rgba(180,160,110,0.4);
+  }
+  .bento-card:nth-of-type(even) .tape { transform: translateX(-50%) rotate(3deg); left: 38%; }
+  html[data-theme="dark"] .tape { opacity: 0.85; }
+
+  .bento-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
   .bento-icon {
-    width: 54px; height: 54px; border-radius: 16px;
+    width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0;
     background: var(--brand-soft); color: var(--brand);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.2rem;
     transition: transform 0.3s var(--ease);
   }
   html[data-theme="dark"] .bento-icon { color: var(--brand-bright); }
   .bento-card:hover .bento-icon { transform: scale(1.1) rotate(-5deg); }
-  .bento-icon .icon { width: 26px; height: 26px; }
-  .bento-card h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; margin-bottom: 0.7rem; letter-spacing: -0.01em; }
+  .bento-icon .icon { width: 23px; height: 23px; }
+  .bento-card h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; letter-spacing: -0.01em; }
   .bento-card ul { list-style: none; }
   .bento-card li {
     font-size: 0.93rem; color: var(--ink-muted);
@@ -635,39 +682,30 @@
     background: var(--brand-bright); opacity: 0.7;
   }
 
-  /* Garten-Featured: Blatt-Ornament */
-  .b-garten .bento-deco {
-    position: absolute; right: -24px; bottom: -30px;
-    width: 170px; height: 170px; opacity: 0.12; pointer-events: none;
-    stroke: var(--brand); fill: none; stroke-width: 1.4;
-    transform: rotate(-8deg);
-  }
-
-  /* Apero: Premium-Karte mit dunklem Gradient */
+  /* Apero: Premium-Karte */
   .b-apero {
-    background:
-      radial-gradient(ellipse 80% 90% at 90% 0%, rgba(240,163,94,0.25) 0%, transparent 55%),
-      linear-gradient(150deg, #1A4631, #0F2D1F);
-    border-color: rgba(240,163,94,0.3);
+    background: linear-gradient(150deg, #0E5038, #07402C 70%, #052E20);
+    border-color: rgba(240,178,106,0.32);
     color: var(--cream-on-dark);
   }
   .b-apero h3 { color: #fff; }
-  .b-apero li { color: rgba(244,250,245,0.78); }
+  .b-apero li { color: rgba(244,250,245,0.8); }
   .b-apero li::before { background: var(--accent-on-dark); }
-  .b-apero .bento-icon { background: rgba(240,163,94,0.16); color: var(--accent-on-dark); }
-  .b-apero .card-glow { background: radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(240,163,94,0.16), transparent 65%); }
+  .b-apero .bento-icon { background: rgba(240,178,106,0.16); color: var(--accent-on-dark); }
+  .b-apero .card-glow { background: radial-gradient(420px circle at var(--mx,50%) var(--my,50%), rgba(240,178,106,0.16), transparent 65%); }
   .b-apero .badge {
-    position: absolute; top: 1.4rem; right: 1.4rem;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--accent-on-dark);
-    border: 1px solid rgba(240,163,94,0.45);
-    padding: 0.3rem 0.8rem; border-radius: 999px;
+    position: absolute; top: 1rem; right: 1.2rem; z-index: 2;
+    font-family: var(--hand); font-weight: 600;
+    font-size: 1.3rem; letter-spacing: 0.01em;
+    color: #FFD9A3;
+    transform: rotate(2.5deg);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
   }
+  .b-apero .bento-photo::after { background: linear-gradient(to top, rgba(5,46,32,0.72) 0%, transparent 45%); }
 
-  /* ════════════════════ ABLAUF – ZOLLSTOCK ════════════════════ */
+  /* ════════════════════ ABLAUF · ZOLLSTOCK ════════════════════ */
   .ablauf-section { background: var(--bg-tint); transition: background 0.4s; position: relative; overflow: hidden; }
-  .steps { display: flex; flex-direction: column; max-width: 760px; position: relative; padding-left: 0; }
-  /* Der Zollstock */
+  .steps { display: flex; flex-direction: column; max-width: 760px; position: relative; }
   .steps::before {
     content: '';
     position: absolute; left: 9px; top: -8px; bottom: -8px;
@@ -683,36 +721,73 @@
     background-size: 8px 100%, 14px 100%, 100% 100%;
     background-position: right top, left top, center;
     background-repeat: repeat-y, repeat-y, no-repeat;
-    box-shadow: 4px 0 18px rgba(20,61,42,0.18), inset 0 0 0 1px rgba(90,55,10,0.25);
+    box-shadow: 4px 0 18px rgba(3,42,29,0.18), inset 0 0 0 1px rgba(90,55,10,0.25);
   }
   .step {
     display: flex; gap: 1.9rem; align-items: flex-start;
     padding-bottom: 3rem; position: relative;
   }
   .step:last-child { padding-bottom: 0; }
-  /* Gelenk-Niete im Zollstock */
   .step-num {
     width: 56px; height: 56px; border-radius: 50%;
-    background:
-      radial-gradient(circle at 32% 30%, #4F9A74, var(--brand) 55%, var(--brand-deep));
+    background: radial-gradient(circle at 32% 30%, #3D9C70, #10654A 55%, #07402C);
     color: #fff;
     font-family: var(--serif); font-weight: 600; font-size: 1.3rem;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; z-index: 1;
     box-shadow:
-      0 5px 18px rgba(20,61,42,0.35),
+      0 5px 18px rgba(3,42,29,0.35),
       inset 0 0 0 3px rgba(255,255,255,0.22),
-      inset 0 0 0 6px rgba(20,61,42,0.18);
+      inset 0 0 0 6px rgba(3,42,29,0.18);
   }
   .step-body h3 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; margin-bottom: 0.45rem; padding-top: 11px; letter-spacing: -0.01em; }
   .step-body p { font-size: 0.98rem; color: var(--ink-muted); line-height: 1.75; max-width: 56ch; }
 
-  /* ════════════════════ PREISE (dark, glass) ════════════════════ */
+  /* ════════════════════ GRAS-BAND · echtes Foto, Parallax ════════════════════ */
+  .band {
+    position: relative;
+    min-height: clamp(320px, 46vh, 460px);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    text-align: center;
+    padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .band-bg {
+    position: absolute; inset: -18% 0;
+    width: 100%; height: 136%;
+    object-fit: cover;
+    will-change: transform;
+  }
+  .band::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(3,42,29,0.58);
+  }
+  .band-quote {
+    position: relative; z-index: 1;
+    font-family: var(--serif); font-style: italic; font-weight: 500;
+    font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+    line-height: 1.25;
+    color: #fff;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    max-width: 720px;
+  }
+  .band-sig {
+    position: relative; z-index: 1;
+    display: block;
+    font-family: var(--hand); font-weight: 600;
+    font-size: 1.9rem; color: var(--accent-on-dark);
+    margin-top: 1rem;
+    transform: rotate(-2deg);
+    text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  /* ════════════════════ PREISE ════════════════════ */
   .preis-section {
     background:
-      radial-gradient(ellipse at 85% 0%, rgba(92,179,134,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at 0% 100%, rgba(240,163,94,0.09) 0%, transparent 50%),
-      linear-gradient(160deg, #143D2A 0%, #0E2C1E 100%);
+      radial-gradient(ellipse at 85% 0%, rgba(87,186,140,0.16) 0%, transparent 55%),
+      radial-gradient(ellipse at 0% 100%, rgba(240,178,106,0.09) 0%, transparent 50%),
+      linear-gradient(160deg, #07402C 0%, #052E20 100%);
     color: #F2F8F3;
     position: relative; overflow: hidden;
   }
@@ -772,7 +847,7 @@
   .beispiel-card strong.was { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: #fff; display: block; margin-bottom: 0.5rem; }
   .beispiel-card .mit-alex { color: var(--accent-on-dark); font-weight: 700; }
   .preis-note {
-    font-size: 0.9rem; color: rgba(242,248,243,0.6);
+    font-size: 0.9rem; color: rgba(242,248,243,0.62);
     border-top: 1px solid rgba(255,255,255,0.12);
     padding-top: 1.5rem; line-height: 1.8;
   }
@@ -787,7 +862,7 @@
     border-radius: var(--r-lg);
     overflow: hidden; position: relative;
     box-shadow: var(--shadow-lg);
-    background: linear-gradient(150deg, var(--brand-bright), var(--brand-deep));
+    background: linear-gradient(150deg, #2E9168, #07402C);
     transform: rotate(-2deg);
     transition: transform 0.4s var(--ease);
   }
@@ -826,7 +901,7 @@
     font-size: 0.87rem; font-weight: 600;
     transition: transform 0.25s var(--ease);
   }
-  .highlight-pill:hover { transform: translateY(-2px); }
+  .highlight-pill:hover { transform: translateY(-2px) rotate(-1deg); }
   html[data-theme="dark"] .highlight-pill { color: var(--brand-bright); }
   .highlight-pill .icon { width: 1em; height: 1em; stroke-width: 2.5; }
 
@@ -869,39 +944,49 @@
     max-width: 62ch;
   }
 
-  /* ════════════════════ EINSATZGEBIET ════════════════════ */
+  /* ════════════════════ EINSATZGEBIET · echtes Foto ════════════════════ */
   .gebiet-band {
-    padding: 3.5rem clamp(1.25rem, 4vw, 2.5rem);
+    position: relative;
+    padding: 4.5rem clamp(1.25rem, 4vw, 2.5rem);
     text-align: center;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--bg-elevated);
-    transition: background 0.4s;
+    overflow: hidden;
+    color: var(--cream-on-dark);
   }
-  .gebiet-band .section-label { justify-content: center; }
+  .gebiet-bg {
+    position: absolute; inset: -15% 0;
+    width: 100%; height: 130%;
+    object-fit: cover;
+    will-change: transform;
+  }
+  .gebiet-band::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(170deg, rgba(3,42,29,0.88), rgba(7,64,44,0.82));
+  }
+  .gebiet-band > :not(.gebiet-bg) { position: relative; z-index: 1; }
+  .gebiet-band .section-label { justify-content: center; color: #7FD3A7; }
   .gebiet-band .section-label::before { display: none; }
-  .gebiet-band > p { font-size: 0.98rem; color: var(--ink-muted); margin-bottom: 1.4rem; }
+  .gebiet-band > p { font-size: 1rem; color: var(--muted-on-dark); margin-bottom: 1.5rem; }
   .gebiet-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
   .gebiet-tag {
     display: inline-flex; align-items: center; gap: 0.45rem;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    color: var(--brand);
+    background: rgba(244,250,245,0.1);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(244,250,245,0.22);
+    color: #C8F0DA;
     padding: 0.55rem 1.2rem; border-radius: 999px;
     font-size: 0.9rem; font-weight: 600;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.25s var(--ease), border-color 0.25s;
+    transition: transform 0.25s var(--ease), background 0.25s;
   }
-  .gebiet-tag:hover { transform: translateY(-2px); border-color: var(--brand-bright); }
-  html[data-theme="dark"] .gebiet-tag { color: var(--brand-bright); }
+  .gebiet-tag:hover { transform: translateY(-2px); background: rgba(244,250,245,0.16); }
   .gebiet-tag .icon { width: 1em; height: 1em; }
 
-  /* ════════════════════ KONTAKT – Finale ════════════════════ */
+  /* ════════════════════ KONTAKT ════════════════════ */
   .kontakt-section {
     text-align: center; position: relative; overflow: hidden;
     background:
-      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(92,179,134,0.22) 0%, transparent 60%),
-      linear-gradient(170deg, var(--brand-darker) 0%, var(--brand-deep) 70%, #0E2A1D 100%);
+      radial-gradient(ellipse 70% 60% at 50% 0%, rgba(87,186,140,0.22) 0%, transparent 60%),
+      linear-gradient(170deg, var(--brand-darker) 0%, var(--brand-deep) 70%, #04261B 100%);
     color: var(--cream-on-dark);
   }
   .kontakt-section .section-label { justify-content: center; color: #7FD3A7; }
@@ -931,7 +1016,7 @@
     text-align: left;
     transition: transform 0.25s var(--ease), background 0.25s, border-color 0.25s;
   }
-  .kontakt-card:hover { transform: translateY(-4px); background: rgba(244,250,245,0.12); border-color: rgba(143,227,182,0.5); }
+  .kontakt-card:hover { transform: translateY(-4px) rotate(-0.5deg); background: rgba(244,250,245,0.12); border-color: rgba(143,227,182,0.5); }
   .kontakt-card:active { transform: scale(0.98); }
   .kontakt-card-icon {
     width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
@@ -968,32 +1053,32 @@
   .fab {
     position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 90;
     width: 58px; height: 58px; border-radius: 50%;
-    background: linear-gradient(135deg, #3E8E68, #1F5740);
+    background: linear-gradient(135deg, #27815C, #0B4D37);
     color: #fff;
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 28px rgba(20,61,42,0.45);
+    box-shadow: 0 8px 28px rgba(3,42,29,0.45);
     opacity: 0; transform: translateY(20px) scale(0.8);
     pointer-events: none;
     transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
   }
   .fab.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-  .fab:hover { transform: translateY(-3px) scale(1.06); }
+  .fab:hover { transform: translateY(-3px) scale(1.06) rotate(8deg); }
   .fab .icon { width: 26px; height: 26px; }
   .fab::after {
     content: ''; position: absolute; inset: 0; border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(92,179,134,0.45);
+    box-shadow: 0 0 0 0 rgba(87,186,140,0.45);
     animation: fabPulse 2.6s ease-out infinite;
   }
-  @keyframes fabPulse { to { box-shadow: 0 0 0 16px rgba(92,179,134,0); } }
+  @keyframes fabPulse { to { box-shadow: 0 0 0 16px rgba(87,186,140,0); } }
 
   /* ════════════════════ SCROLL REVEAL ════════════════════ */
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(30px) rotate(var(--rot, 0deg));
     transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
     transition-delay: var(--d, 0s);
   }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.visible { opacity: 1; transform: translateY(0) rotate(var(--rot, 0deg)); }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -1017,9 +1102,9 @@
     .about-grid { grid-template-columns: 1fr; }
     .about-photo { max-width: 320px; }
     .bento { grid-template-columns: repeat(2, 1fr); }
-    .b-garten { grid-column: span 2; grid-row: span 1; }
-    .b-rep, .b-apero, .b-rest { grid-column: span 2; }
+    .b-garten, .b-rep, .b-apero { grid-column: span 2; }
     .b-besorg, .b-haus { grid-column: span 1; }
+    .b-rest { grid-column: 1 / -1; }
     .scroll-hint { display: none; }
   }
   @media (max-width: 820px) {
@@ -1159,10 +1244,11 @@
 
 <!-- ════════ HERO ════════ -->
 <header class="hero">
+  <img class="hero-bg" id="heroBg" src="https://images.unsplash.com/photo-1533563906091-fdfdffc3e3c4?auto=format&fit=crop&w=2000&q=80" alt="" width="2000" height="1333" fetchpriority="high" aria-hidden="true">
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-glow g1" aria-hidden="true"></div>
   <div class="hero-glow g2" aria-hidden="true"></div>
 
-  <!-- Selbstzeichnende Werkzeuge -->
   <div class="hero-tools" aria-hidden="true">
     <svg class="t1" viewBox="0 0 100 100"><g class="draw">
       <path d="M30 75 L62 43 M58 39 L70 27 Q74 23 79 26 L86 31 Q90 34 86 38 L76 48 Q72 51 68 49 L62 43 M30 75 Q26 79 22 75 Q18 71 22 67 L26 71"/>
@@ -1185,7 +1271,7 @@
         <span class="line"><span class="w" style="animation-delay:0.1s">Einfach&nbsp;</span><span class="w" style="animation-delay:0.18s"><em>Alex</em>&nbsp;</span><span class="w" style="animation-delay:0.26s"><em>fragen</em>&nbsp;–</span></span>
         <span class="line"><span class="w" style="animation-delay:0.38s">ich&nbsp;</span><span class="w" style="animation-delay:0.46s">helfe&nbsp;</span><span class="w" style="animation-delay:0.54s">gerne.</span></span>
       </h1>
-      <p class="hero-sub">Gartenarbeit, Reparaturen, ein köstlicher Apero oder der volle Keller: Ich packe an, wo du Unterstützung brauchst. Persönlich, zuverlässig und mit ehrlicher Freude an guter Arbeit.</p>
+      <p class="hero-sub">Die Hecke wuchert? Das Regal liegt noch im Karton? Am Samstag kommen Gäste? Schreib mir. Ich packe an – zuverlässig, persönlich und mit ehrlicher Freude an guter Arbeit.</p>
       <div class="hero-actions">
         <a href="https://wa.me/41762882024" class="btn btn-primary" aria-label="Alex per WhatsApp kontaktieren">
           <svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>
@@ -1237,20 +1323,24 @@
   <div class="trust-item"><svg class="icon" aria-hidden="true"><use href="#i-receipt"/></svg> Abrechnung per Rechnung</div>
 </div>
 
-<!-- ════════ LEISTUNGEN – BENTO ════════ -->
+<!-- ════════ LEISTUNGEN · Foto-Bento ════════ -->
 <section class="section" id="leistungen" aria-labelledby="leistungen-title">
   <div class="container">
     <p class="section-label reveal">Angebot</p>
     <h2 id="leistungen-title" class="reveal">Was kann ich <em>für dich</em> tun?</h2>
-    <p class="section-intro reveal">Von der Hecke bis zum vollen Keller: Ich bin dort, wo Hände und Erfahrung gefragt sind. Und wenn du unsicher bist, ob etwas in mein Repertoire fällt – frag einfach.</p>
+    <p class="section-intro reveal">Von der Hecke bis zum vollen Keller: Ich bin dort, wo zwei Hände und Erfahrung gefragt sind. Nicht sicher, ob dein Projekt dazugehört? Frag einfach – deshalb heisst es ja so.</p>
     <div class="bento">
       <article class="bento-card tilt b-garten reveal">
         <div class="card-glow" aria-hidden="true"></div>
-        <svg class="bento-deco" viewBox="0 0 100 100" aria-hidden="true">
-          <path d="M50 90 Q48 60 50 30 M50 70 Q35 65 28 50 M50 70 Q65 65 72 50 M50 50 Q38 46 33 34 M50 50 Q62 46 67 34 M50 30 Q42 26 40 16 M50 30 Q58 26 60 16"/>
-        </svg>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div>
-        <h3>Garten &amp; Aussenpflege</h3>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="bento-photo">
+          <img src="https://images.unsplash.com/photo-1748893790747-fc2646924cbe?auto=format&fit=crop&w=900&q=80" alt="Rasenmäher auf frisch gemähtem Rasen" loading="lazy" width="900" height="506">
+          <span class="photo-caption" aria-hidden="true">frisch gemäht</span>
+        </div>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Garten &amp; Aussenpflege</h3>
+        </div>
         <ul>
           <li>Rasenmähen, Hecken schneiden</li>
           <li>Beete anlegen und bepflanzen</li>
@@ -1260,8 +1350,15 @@
       </article>
       <article class="bento-card tilt b-rep reveal" style="--d:0.07s">
         <div class="card-glow" aria-hidden="true"></div>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></div>
-        <h3>Reparaturen &amp; Handwerk</h3>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="bento-photo">
+          <img src="https://images.unsplash.com/photo-1761074342668-c38fc2e62e67?auto=format&fit=crop&w=900&q=80" alt="Werkzeugwand mit sortiertem Handwerkzeug" loading="lazy" width="900" height="506">
+          <span class="photo-caption" aria-hidden="true">sitzt, passt &amp; hält</span>
+        </div>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></div>
+          <h3>Reparaturen &amp; Handwerk</h3>
+        </div>
         <ul>
           <li>Kleine Reparaturen im und ums Haus</li>
           <li>Möbel montieren und aufbauen</li>
@@ -1271,8 +1368,15 @@
       </article>
       <article class="bento-card tilt b-besorg reveal" style="--d:0.14s">
         <div class="card-glow" aria-hidden="true"></div>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg></div>
-        <h3>Besorgungen &amp; Transporte</h3>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="bento-photo">
+          <img src="https://images.unsplash.com/photo-1609842947419-ba4f04d5d60f?auto=format&fit=crop&w=700&q=80" alt="Korb mit frischem Gemüse vom Markt" loading="lazy" width="700" height="394">
+          <span class="photo-caption" aria-hidden="true">bring ich mit</span>
+        </div>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg></div>
+          <h3>Besorgungen &amp; Transporte</h3>
+        </div>
         <ul>
           <li>Einkäufe und Behördengänge</li>
           <li>Möbel- und Sperrguttransporte</li>
@@ -1282,8 +1386,15 @@
       </article>
       <article class="bento-card tilt b-haus reveal" style="--d:0.21s">
         <div class="card-glow" aria-hidden="true"></div>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></div>
-        <h3>Haus &amp; Haushalt</h3>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="bento-photo">
+          <img src="https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&w=700&q=80" alt="Zimmer mit gepackten Umzugskartons und Pflanzen" loading="lazy" width="700" height="394">
+          <span class="photo-caption" aria-hidden="true">Platz geschaffen</span>
+        </div>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></div>
+          <h3>Haus &amp; Haushalt</h3>
+        </div>
         <ul>
           <li>Aufräumen und Entrümpeln</li>
           <li>Umzugshilfe von A bis Z</li>
@@ -1293,9 +1404,15 @@
       </article>
       <article class="bento-card tilt b-apero reveal" style="--d:0.1s">
         <div class="card-glow" aria-hidden="true"></div>
-        <span class="badge">Mit Leidenschaft</span>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-wine"/></svg></div>
-        <h3>Apero &amp; Suppenessen</h3>
+        <span class="badge" aria-hidden="true">mit Leidenschaft!</span>
+        <div class="bento-photo">
+          <img src="https://images.unsplash.com/photo-1553653760-d787a53b4bbe?auto=format&fit=crop&w=900&q=80" alt="Apero-Platte mit Früchten, Fleisch und Wein" loading="lazy" width="900" height="506">
+          <span class="photo-caption" aria-hidden="true">en Guete!</span>
+        </div>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-wine"/></svg></div>
+          <h3>Apero &amp; Suppenessen</h3>
+        </div>
         <ul>
           <li>Aperos für bis zu 20 Personen</li>
           <li>Suppenessen für bis zu 50 Personen</li>
@@ -1305,8 +1422,10 @@
       </article>
       <article class="bento-card tilt b-rest reveal" style="--d:0.17s">
         <div class="card-glow" aria-hidden="true"></div>
-        <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></div>
-        <h3>Und was du sonst brauchst</h3>
+        <div class="bento-head">
+          <div class="bento-icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></div>
+          <h3>Und was du sonst brauchst</h3>
+        </div>
         <ul>
           <li>Ferienbetreuung für Haus und Garten</li>
           <li>Gesellschaft und Alltagsbegleitung</li>
@@ -1318,18 +1437,18 @@
   </div>
 </section>
 
-<!-- ════════ ABLAUF – ZOLLSTOCK ════════ -->
+<!-- ════════ ABLAUF · ZOLLSTOCK ════════ -->
 <section class="section ablauf-section" id="ablauf" aria-labelledby="ablauf-title">
   <div class="container">
     <p class="section-label reveal">So läuft's ab</p>
     <h2 id="ablauf-title" class="reveal">Unkompliziert <em>von Anfang an.</em></h2>
-    <p class="section-intro reveal">Kein Papierkram, keine langen Wartezeiten. Eine kurze Nachricht reicht – den Rest klären wir persönlich.</p>
+    <p class="section-intro reveal">Kein Papierkram, keine Warteschleife. Eine kurze Nachricht reicht – den Rest klären wir persönlich.</p>
     <div class="steps">
       <div class="step reveal">
         <div class="step-num" aria-hidden="true">1</div>
         <div class="step-body">
           <h3>Meld dich, wie's dir passt</h3>
-          <p>Per WhatsApp, Anruf oder E-Mail. Ein paar Zeilen genügen; formlos ist völlig okay. Ich freue mich auf jede Nachricht.</p>
+          <p>Per WhatsApp, Anruf oder E-Mail – wie's dir lieber ist. Zwei, drei Zeilen genügen. Ich freue mich auf deine Nachricht.</p>
         </div>
       </div>
       <div class="step reveal" style="--d:0.08s">
@@ -1357,12 +1476,21 @@
   </div>
 </section>
 
+<!-- ════════ GRAS-BAND ════════ -->
+<div class="band" role="presentation">
+  <img class="band-bg" src="https://images.unsplash.com/photo-1544914379-806667cd9489?auto=format&fit=crop&w=2000&q=80" alt="" width="2000" height="1125" loading="lazy" aria-hidden="true">
+  <div>
+    <p class="band-quote">«Du lehnst dich zurück.<br>Ich packe an.»</p>
+    <span class="band-sig">– Alex</span>
+  </div>
+</div>
+
 <!-- ════════ PREISE ════════ -->
 <section class="section preis-section" id="preise" aria-labelledby="preise-title">
   <div class="container">
     <p class="section-label reveal">Preise</p>
     <h2 id="preise-title" class="reveal">Faire Preise, <em>keine Überraschungen.</em></h2>
-    <p class="section-intro reveal">Abrechnung per Rechnung – transparent und ehrlich. Aktuell MWST-befreit. Bei grösseren Projekten vereinbaren wir gerne eine Pauschale.</p>
+    <p class="section-intro reveal">Du weisst vorher, was es kostet – und nachher steht genau das auf der Rechnung. Aktuell MWST-befreit. Für grössere Projekte machen wir eine Pauschale ab.</p>
     <div class="preis-cards">
       <div class="preis-card reveal">
         <h3>Stundensatz</h3>
@@ -1480,6 +1608,7 @@
 
 <!-- ════════ EINSATZGEBIET ════════ -->
 <section class="gebiet-band" aria-labelledby="gebiet-title">
+  <img class="gebiet-bg" src="https://images.unsplash.com/photo-1670067834437-f36e050fabc3?auto=format&fit=crop&w=2000&q=80" alt="" width="2000" height="1334" loading="lazy" aria-hidden="true">
   <p class="section-label" id="gebiet-title">Einsatzgebiet</p>
   <p>Ausgangspunkt Langnau am Albis – unterwegs bis Zürich und Agglomeration. Weiter weg auf Anfrage.</p>
   <div class="gebiet-tags">
@@ -1495,7 +1624,7 @@
   <div class="container-narrow">
     <p class="section-label reveal">Kontakt</p>
     <h2 id="kontakt-title" class="reveal">Einfach <em>fragen</em> –<br>ich melde mich.</h2>
-    <p class="lead reveal">Schreib mir per WhatsApp oder E-Mail. Ich antworte innert weniger Stunden und wir finden gemeinsam die passende Lösung.</p>
+    <p class="lead reveal">Schreib mir per WhatsApp oder E-Mail. Ich melde mich innert Stunden – und meistens haben wir in fünf Minuten eine Lösung.</p>
     <div class="kontakt-cards">
       <a href="https://wa.me/41762882024" class="kontakt-card reveal" aria-label="Alex per WhatsApp kontaktieren">
         <span class="kontakt-card-icon"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
@@ -1523,7 +1652,7 @@
 <footer>
   <div class="footer-inner">
     <span class="footer-logo">Frag Alex<span class="dot">.</span></span>
-    <span>© 2026 Frag Alex · Allrounder für Haus, Garten &amp; Küche</span>
+    <span>© 2026 Frag Alex · Allrounder für Haus, Garten &amp; Küche · Fotos: Unsplash</span>
     <a href="#kontakt">Kontakt</a>
   </div>
 </footer>
@@ -1537,7 +1666,7 @@
 (function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Theme: System-Default + Toggle mit localStorage */
+  /* Theme */
   var root = document.documentElement;
   var stored = null;
   try { stored = localStorage.getItem('fragalex-theme'); } catch (e) {}
@@ -1557,11 +1686,13 @@
     applyTheme(next);
   });
 
-  /* Nav: solid nach Scroll + on-dark solange im Hero/Kontakt */
+  /* Nav + Progress + FAB + Parallax */
   var nav = document.getElementById('nav');
   var hero = document.querySelector('.hero');
+  var heroBg = document.getElementById('heroBg');
   var progress = document.getElementById('progress');
   var fab = document.getElementById('fab');
+  var parallaxEls = document.querySelectorAll('.band-bg, .gebiet-bg');
   var ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -1573,6 +1704,19 @@
       var h = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
       fab.classList.toggle('show', y > hero.offsetHeight * 0.7);
+      if (!reduceMotion) {
+        if (heroBg && y < hero.offsetHeight) {
+          heroBg.style.transform = 'translateY(' + (y * 0.22) + 'px)';
+        }
+        parallaxEls.forEach(function (el) {
+          var r = el.parentElement.getBoundingClientRect();
+          if (r.bottom > 0 && r.top < window.innerHeight) {
+            var raw = (r.top - window.innerHeight / 2) * -0.12;
+            var limit = r.height * 0.13;
+            el.style.transform = 'translateY(' + Math.max(-limit, Math.min(limit, raw)) + 'px)';
+          }
+        });
+      }
       ticking = false;
     });
   }
@@ -1643,7 +1787,7 @@
     counters.forEach(function (el) { el.textContent = el.dataset.target; });
   }
 
-  /* 3D-Tilt auf Bento-Karten (nur Pointer-Geräte, nie bei reduced motion) */
+  /* 3D-Tilt (nur Pointer-Geräte, nie bei reduced motion) */
   var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   if (canHover && !reduceMotion) {
     document.querySelectorAll('.tilt').forEach(function (card) {

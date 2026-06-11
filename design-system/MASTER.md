@@ -114,3 +114,26 @@ Nach Feedback (Referenz: 21st.dev/Reel-Ästhetik) deutlich expressiver:
 - **Kontakt-Finale** dunkel wie Hero (Rahmen-Dramaturgie), Glass-Kontaktkarten
 - **Scroll-Progress-Bar** (grün→amber), **WhatsApp-FAB** nach 70% Hero-Höhe
 - Alles `prefers-reduced-motion`-sicher; neue Kontrastpaare verifiziert (12 Checks, alle ≥ AA)
+
+---
+
+## V2.2 «Real & Playful» — Ergänzungen (Juni 2026)
+
+Feedback: verspielter, realistischer (echte Fotos), Grün → British Racing Green, Texte durch Aline poliert.
+
+- **Palette → British Racing Green**: brand `#10654A`, deep `#07402C`, darker `#032A1D`,
+  bright `#2E9168` · Gold/Amber als klassischer BRG-Partner (`#B06A24` / `#F0B26A`)
+- **Echte Fotografie (Unsplash, hotlinked)**: Farn-Hero (photo-1533563906091), Rasenmäher,
+  Werkzeugwand, Gemüsekorb, Umzugskartons, Apero-Platte, Gras-Band (photo-1544914379),
+  Vierwaldstättersee-Panorama (Einsatzgebiet). **Für Produktion: Bilder herunterladen und
+  selbst hosten** (Unsplash-Lizenz: frei, Namensnennung empfohlen)
+- **Werkstatt-Pinnwand-Ästhetik (playful)**: Foto-Karten leicht rotiert (±0.7°),
+  Klebeband-Streifen (CSS), handschriftliche Notizen in **Caveat**
+  («frisch gemäht», «sitzt, passt & hält», «en Guete!»)
+- **Gras-Zitat-Band** mit Parallax: «Du lehnst dich zurück. Ich packe an.» + Caveat-Signatur
+- **Parallax** auf Hero-/Band-/Gebiet-Fotos (geklemmt auf Bild-Bleed, reduced-motion-safe)
+- **Aline-Textschliff**: Hero-Sub als Fragen-Trio, «frag einfach – deshalb heisst es ja so»,
+  «keine Warteschleife», «meistens haben wir in fünf Minuten eine Lösung».
+  FAQ/Preise unverändert (Schema.org-Konsistenz!)
+- Gotcha behoben: `.gebiet-band > *`-Regel hatte `position:absolute` des BG-Bildes
+  überschrieben → `> :not(.gebiet-bg)`
