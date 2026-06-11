@@ -94,3 +94,23 @@ Desaturierte, aufgehellte Grüntöne — keine invertierten Farben.
 - Mehr als 1–2 animierte Elemente pro Viewport
 - `width/height`-Animationen → nur transform/opacity
 - Grau-auf-Grau, Text < 16px im Body
+
+---
+
+## V2.1 «Next Level» — Ergänzungen (Juni 2026)
+
+Nach Feedback (Referenz: 21st.dev/Reel-Ästhetik) deutlich expressiver:
+
+- **Cinematic Hero**: immer dunkelgrün (beide Modi), Radial-Glows (animiert driftend),
+  Wort-für-Wort-H1-Reveal, Grain-Overlay global (feTurbulence, 4–6% Opacity)
+- **Chat-Mockup tippt sich selbst**: Bubbles cascaden (1.1s/2.3s/3.4s), Typing-Dots dazwischen
+- **Selbstzeichnende Werkzeug-Linienkunst** (stroke-dashoffset): Hammer, Giesskanne, Schneebesen
+- **Marquee-Band** in Holz/Amber (Zollstock-Farbwelt), -1.3° gekippt, 36s Loop, pausiert bei Hover
+- **Bento-Grid** für Leistungen: 4 Spalten, Apero als dunkle Premium-Karte mit Amber,
+  Abschlusskarte full-width; 3D-Tilt (max 5°, nur hover+fine pointer) + Cursor-Glow
+- **Zollstock-Timeline**: Ablauf-Schritte auf Doppelmeter-Strip (Holz-Gradient + Tick-Marks),
+  Schrittnummern als Gelenk-Nieten
+- **Count-up-Preise** (1.3s ease-out-quart, IO-getriggert), Shine-Sweep auf Preis-/Primary-Buttons
+- **Kontakt-Finale** dunkel wie Hero (Rahmen-Dramaturgie), Glass-Kontaktkarten
+- **Scroll-Progress-Bar** (grün→amber), **WhatsApp-FAB** nach 70% Hero-Höhe
+- Alles `prefers-reduced-motion`-sicher; neue Kontrastpaare verifiziert (12 Checks, alle ≥ AA)
