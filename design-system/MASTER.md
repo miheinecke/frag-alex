@@ -137,3 +137,37 @@ Feedback: verspielter, realistischer (echte Fotos), Grün → British Racing Gre
   FAQ/Preise unverändert (Schema.org-Konsistenz!)
 - Gotcha behoben: `.gebiet-band > *`-Regel hatte `position:absolute` des BG-Bildes
   überschrieben → `> :not(.gebiet-bg)`
+
+---
+
+## V3 «Swiss Editorial» — Kompletter Neuansatz (Juni 2026) ← AKTUELL
+
+Feedback zu V2.2: Klebeband/Handschrift/Zollstock/Holz-Marquee = «Gebastel, zu ki-mässig».
+Anforderung: modern, cool, authentisch. → Komplett neu gedacht als **Swiss Editorial**
+(passt wörtlich zur Zürcher Marke): Typografie + Raster + echte Fotografie, null Skeuomorphismus.
+
+### Typografie (NEU)
+- **Display:** Space Grotesk 500/600 — gross, eng (tracking −0.03em), line-height ~1.0
+- **Body:** Inter 400/500
+- **Labels/Nummern/Ticker:** IBM Plex Mono, klein, uppercase, letter-spacing 0.14em
+  («01 — Angebot», «01»–«06» Service-Nummern)
+- Hero-Trick: ein Wort als Outline (`-webkit-text-stroke`), Akzentwort in Mint
+
+### Layout-Prinzipien
+- **Hairlines statt Schatten** (1px var(--line)), Borders strukturieren alles
+- **Service-Zeilen statt Karten**: Grid 90px(Nr) / 1fr(Titel+Liste) / 340px(Foto), hover = Foto-Zoom + Entsättigung weg
+- **Ablauf**: 4-Spalten-Raster, Mono-Nummern, kein Timeline-Schmuck
+- **Preise**: 1px-Gap-Grid (Zellen statt Karten), Space-Grotesk-Beträge, Count-up bleibt
+- **Kontakt**: grosse Link-Zeilen (Kind/Wert/Pfeil-Kreis), hover = indent + Pfeil rotiert -45°
+- Fotos konsistent: `saturate(0.82)`, voll erst bei Hover
+- **Logo (NEU)**: Sprechblase + Häkchen, zeichnet sich per stroke-dashoffset selbst
+  (Bubble 1.1s, Check 0.5s versetzt), Hover = Wiggle; Wortmarke «frag alex.» lowercase;
+  auch als SVG-Favicon (BRG-Bubble, Gold-Check)
+
+### Kontrast-Lektion (kleine Mono-Labels!)
+Labels < 18px brauchen 4.5:1 → section-label/srv-num/step-num = var(--brand) (6.6:1),
+NICHT brand-bright (3.7:1). srv-tag: --accent-strong #8F5017. Dark-Btn: Grund #57BA8C.
+
+### Gestrichen (Anti-Patterns dieses Brands)
+Caveat/Handschrift · Klebeband · Karten-Rotation · Zollstock · Holz-Gradients ·
+Fraunces-Serifen · Glas-Schimmer-Sweeps · 3D-Tilt → wirkt «gebastelt»
