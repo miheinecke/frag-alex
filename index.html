@@ -232,7 +232,7 @@
   }
   .logo-mark .lm-bubble {
     stroke-dasharray: 90; stroke-dashoffset: 90;
-    animation: logoDraw 1.1s var(--ease) 0.25s forwards;
+    animation: logoDraw 1.1s var(--ease) 0.9s forwards;
   }
   .logo-mark .lm-check {
     stroke: #D9A24A;
@@ -359,12 +359,20 @@
     position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(6,40,28,0.78) 0%, rgba(6,40,28,0.55) 40%, rgba(4,30,20,0.92) 100%);
   }
+  .hero-particles {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+
   .hero-inner {
     max-width: 1240px; margin: 0 auto; width: 100%;
     position: relative; z-index: 1;
     display: grid; grid-template-columns: 1.25fr 0.75fr;
     gap: clamp(2rem, 5vw, 4rem);
     align-items: end;
+    margin: 0 auto; width: 100%;
   }
   .hero-badge {
     display: inline-flex; align-items: center; gap: 0.55rem;
@@ -380,7 +388,7 @@
   @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(143,227,182,0.5); } 50% { box-shadow: 0 0 0 6px rgba(143,227,182,0); } }
   .hero h1 {
     font-family: var(--display);
-    font-size: clamp(2.9rem, 8vw, 6rem);
+    font-size: clamp(3.4rem, 9.5vw, 7.2rem);
     font-weight: 600;
     line-height: 0.99;
     letter-spacing: -0.035em;
@@ -948,6 +956,80 @@
   html[data-theme="dark"] .fab:hover { background: #6FCB9A; }
   .fab .icon { width: 25px; height: 25px; }
 
+
+
+  /* ════════════════════ LOGO-INTRO · fliegt in die Nav ════════════════════ */
+  .logo-fly {
+    position: fixed; left: 0; top: 0; z-index: 400;
+    width: 28px; height: 28px;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    filter: drop-shadow(0 18px 40px rgba(0,0,0,0.45));
+  }
+  .logo-fly svg {
+    width: 100%; height: 100%; overflow: visible;
+    fill: none; stroke: var(--cream-on-dark); stroke-width: 1.9;
+    stroke-linecap: round; stroke-linejoin: round;
+  }
+  .logo-fly .fly-bubble { stroke-dasharray: 90; stroke-dashoffset: 90; }
+  .logo-fly .fly-check { stroke: #F0B26A; stroke-dasharray: 14; stroke-dashoffset: 14; }
+  .logo-fly.go .fly-bubble { animation: logoDraw 0.7s var(--ease) 0.15s forwards; }
+  .logo-fly.go .fly-check { animation: logoDraw 0.4s var(--ease) 0.75s forwards; }
+
+  body:not(.logo-landed) .nav-logo .logo-mark { opacity: 0; }
+  .nav-logo > span {
+    display: inline-block;
+    opacity: 0; transform: translateX(-14px);
+    transition: opacity 0.5s var(--ease), transform 0.55s var(--ease);
+  }
+  body.logo-landed .nav-logo > span { opacity: 1; transform: translateX(0); }
+  body.logo-landed .nav-logo .logo-mark { opacity: 1; }
+  /* Echte Nav-Marke: nach Landung bereits gezeichnet */
+  body.logo-landed .nav-logo .lm-bubble,
+  body.logo-landed .nav-logo .lm-check { animation: none; stroke-dashoffset: 0; }
+
+  .logo-burst {
+    position: fixed; z-index: 399; width: 6px; height: 6px;
+    border-radius: 50%; pointer-events: none;
+  }
+
+  /* ════════════════════ SCROLL-STORYTELLING ════════════════════ */
+  .leaf {
+    position: fixed; top: 0; height: auto;
+    pointer-events: none; z-index: 30;
+    will-change: transform;
+    mix-blend-mode: multiply;
+    filter: brightness(1.06) saturate(1.15) contrast(1.02);
+  }
+  .leaf1 { width: 110px; left: 5%; }
+  .leaf2 { width: 72px; right: 8%; opacity: 0.8; }
+  html[data-theme="dark"] .leaf { opacity: 0.55; }
+
+  .mow-band {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    overflow: clip;
+    transition: background 0.4s;
+  }
+  .mow-svg { display: block; width: 100%; height: clamp(90px, 13vw, 150px); }
+
+  .screw-wrap {
+    position: absolute; top: clamp(4.5rem, 9vw, 8rem); right: clamp(1.25rem, 4vw, 3rem);
+    width: 48px; color: var(--ink);
+  }
+  #screwSvg { width: 48px; height: 120px; overflow: visible; }
+  #screwG { will-change: transform; }
+
+  @media (max-width: 1020px) {
+    .leaf { display: none; }
+    .screw-wrap { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .leaf { display: none; }
+    #mowerG { display: none; }
+  }
+
   /* ════════════════════ SCROLL REVEAL ════════════════════ */
   .reveal {
     opacity: 0;
@@ -1007,6 +1089,14 @@
 <a href="#main" class="skip-link">Zum Inhalt springen</a>
 <div class="grain" aria-hidden="true"></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
+<div class="logo-fly" id="logoFly" aria-hidden="true">
+  <svg viewBox="0 0 24 24">
+    <path class="fly-bubble" d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.51 0-2.93-.36-4.18-1L3 21l2-5.32A8.38 8.38 0 0 1 3.5 11.5 8.5 8.5 0 0 1 12 3a8.38 8.38 0 0 1 9 8.5Z"/>
+    <polyline class="fly-check" points="8.5 12.2 11 14.7 15.5 9.7"/>
+  </svg>
+</div>
+<img class="leaf leaf1" src="https://images.unsplash.com/photo-1591495746097-8a92864d5c1f?auto=format&fit=crop&w=220&q=80" alt="" width="220" height="177" loading="lazy" aria-hidden="true">
+<img class="leaf leaf2" src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?auto=format&fit=crop&w=160&q=80" alt="" width="160" height="160" loading="lazy" aria-hidden="true">
 
 <!-- ════════ SVG SPRITE ════════ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1097,13 +1187,14 @@
 <header class="hero">
   <img class="hero-bg" id="heroBg" src="https://images.unsplash.com/photo-1533563906091-fdfdffc3e3c4?auto=format&fit=crop&w=2000&q=80" alt="" width="2000" height="1333" fetchpriority="high" aria-hidden="true">
   <div class="hero-overlay" aria-hidden="true"></div>
+  <canvas class="hero-particles" id="heroParticles" aria-hidden="true"></canvas>
 
   <div class="hero-inner">
     <div>
       <span class="hero-badge">Langnau am Albis — Zürich</span>
       <h1>
-        <span class="line"><span class="w" style="animation-delay:0.1s">Einfach&nbsp;</span><span class="w" style="animation-delay:0.18s"><em>Alex</em>&nbsp;</span><span class="w outline" style="animation-delay:0.26s">fragen&nbsp;–</span></span>
-        <span class="line"><span class="w" style="animation-delay:0.38s">ich&nbsp;</span><span class="w" style="animation-delay:0.46s">helfe&nbsp;</span><span class="w" style="animation-delay:0.54s">gerne.</span></span>
+        <span class="line"><span class="w" style="animation-delay:0.1s">Du&nbsp;</span><span class="w outline" style="animation-delay:0.22s">fragst.</span></span>
+        <span class="line"><span class="w" style="animation-delay:0.4s">Ich&nbsp;</span><span class="w" style="animation-delay:0.52s"><em>mach's.</em></span></span>
       </h1>
       <p class="hero-sub">Die Hecke wuchert? Das Regal liegt noch im Karton? Am Samstag kommen Gäste? Schreib mir. Ich packe an – zuverlässig, persönlich und mit ehrlicher Freude an guter Arbeit.</p>
       <div class="hero-actions">
@@ -1143,6 +1234,40 @@
       <span class="marquee-item">Rasenmähen <span class="sep">●</span> Möbelaufbau <span class="sep">●</span> Apero für 20 <span class="sep">●</span> Umzugshilfe <span class="sep">●</span> Reparaturen <span class="sep">●</span> Einkäufe <span class="sep">●</span> Hecke schneiden <span class="sep">●</span> Suppenessen für 50 <span class="sep">●</span> Keller räumen <span class="sep">●</span> Gartenpflege <span class="sep">●</span></span>
     </div>
   </div>
+</div>
+
+
+<!-- ════════ MÄH-BAND · Gras wird beim Scrollen geschnitten ════════ -->
+<div class="mow-band" id="mowBand" aria-hidden="true">
+  <svg class="mow-svg" viewBox="0 0 1200 150" preserveAspectRatio="xMidYMax meet">
+    <defs>
+      <g id="tuft-tall">
+        <path d="M0 150 C3 105 -5 70 -9 28 C1 75 5 105 7 150 Z" fill="#2E9168"/>
+        <path d="M11 150 C16 95 11 60 18 18 C23 70 20 110 20 150 Z" fill="#10654A"/>
+        <path d="M24 150 C22 100 29 75 26 35 C33 85 31 115 33 150 Z" fill="#57BA8C"/>
+        <path d="M37 150 C40 100 35 60 42 25 C49 75 44 110 46 150 Z" fill="#1F7D58"/>
+        <path d="M50 150 C55 110 50 80 57 48 C62 95 57 115 59 150 Z" fill="#2E9168"/>
+      </g>
+      <g id="tuft-cut">
+        <path d="M2 150 L6 126 L10 150 Z" fill="#57BA8C"/>
+        <path d="M14 150 L18 130 L22 150 Z" fill="#2E9168"/>
+        <path d="M26 150 L30 124 L34 150 Z" fill="#48A87B"/>
+        <path d="M38 150 L42 132 L46 150 Z" fill="#2E9168"/>
+        <path d="M50 150 L54 127 L58 150 Z" fill="#57BA8C"/>
+      </g>
+      <clipPath id="uncutClip"><rect id="uncutRect" x="0" y="0" width="1200" height="150"/></clipPath>
+    </defs>
+    <g id="cutLayer"></g>
+    <g id="tallLayer" clip-path="url(#uncutClip)"></g>
+    <g id="mowerG">
+      <path d="M-4 -18 L-30 -52" stroke="#06281C" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M-36 -56 L-24 -48" stroke="#06281C" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <rect x="-12" y="-30" width="34" height="17" rx="4" fill="#10654A"/>
+      <rect x="14" y="-25" width="12" height="12" rx="2" fill="#06281C"/>
+      <circle cx="-4" cy="-8" r="9" fill="#06281C"/><circle cx="-4" cy="-8" r="3.2" fill="#F4FAF5"/>
+      <circle cx="20" cy="-6" r="6.5" fill="#06281C"/><circle cx="20" cy="-6" r="2.4" fill="#F4FAF5"/>
+    </g>
+  </svg>
 </div>
 
 <!-- ════════ LEISTUNGEN ════════ -->
@@ -1185,7 +1310,7 @@
       <article class="service-row reveal">
         <span class="srv-num" aria-hidden="true">03</span>
         <div>
-          <h3>Apero &amp; Suppenessen <span class="srv-tag">mit Leidenschaft</span></h3>
+          <h3>Apero &amp; Suppenessen <span class="srv-tag">vom gelernten Koch</span></h3>
           <ul>
             <li>Aperos für bis zu 20 Personen</li>
             <li>Suppenessen für bis zu 50 Personen</li>
@@ -1245,10 +1370,26 @@
 
 <!-- ════════ ABLAUF ════════ -->
 <section class="section ablauf-section" id="ablauf" aria-labelledby="ablauf-title">
-  <div class="container">
+  <div class="container" style="position:relative">
     <p class="section-label reveal">02 — So läuft's ab</p>
     <h2 id="ablauf-title" class="reveal">Unkompliziert <em>von Anfang an.</em></h2>
     <p class="section-intro reveal">Kein Papierkram, keine Warteschleife. Eine kurze Nachricht reicht – den Rest klären wir persönlich.</p>
+    <div class="screw-wrap" aria-hidden="true">
+      <svg id="screwSvg" viewBox="0 0 48 120">
+        <defs><clipPath id="shaftClip"><path d="M16 26 H32 L24 96 Z"/></clipPath></defs>
+        <g id="screwG">
+          <path d="M8 8 H40 L34 24 H14 Z" fill="#10654A"/>
+          <rect id="screwSlot" x="20" y="12" width="8" height="3.5" rx="1.5" fill="#F4FAF5"/>
+          <path d="M16 26 H32 L24 96 Z" fill="#2E9168"/>
+          <g id="threads" clip-path="url(#shaftClip)" stroke="#07402C" stroke-width="2.5" fill="none">
+            <path d="M12 30 L36 36"/><path d="M12 40 L36 46"/><path d="M12 50 L36 56"/>
+            <path d="M12 60 L36 66"/><path d="M12 70 L36 76"/><path d="M12 80 L36 86"/>
+            <path d="M12 90 L36 96"/><path d="M12 20 L36 26"/>
+          </g>
+        </g>
+        <rect x="0" y="100" width="48" height="3" rx="1.5" fill="currentColor" opacity="0.35"/>
+      </svg>
+    </div>
     <div class="steps">
       <div class="step reveal">
         <span class="step-num" aria-hidden="true">01</span>
@@ -1343,7 +1484,7 @@
       <div class="reveal" style="--d:0.1s">
         <div class="about-text">
           <p>Ich bin jemand, der gerne anpackt. Egal ob im Garten, im Haushalt oder beim Heimwerken: Was ich tue, mache ich gründlich, mit Sorgfalt und einem guten Schuss Humor.</p>
-          <p>Handwerklich bin ich vielseitig unterwegs – vom Möbelaufbau über Reparaturen bis zur Gartenarbeit. Und weil ich gerne koche, biete ich auf Anfrage auch Aperos oder Suppenessen für deine Gäste an.</p>
+          <p>Handwerklich bin ich vielseitig unterwegs – vom Möbelaufbau über Reparaturen bis zur Gartenarbeit. Und als gelernter Koch bringe ich auf Anfrage auch Aperos oder Suppenessen für deine Gäste auf den Tisch.</p>
           <p>Viele meiner Kunden kommen über persönliche Empfehlungen. Darauf bin ich stolz, weil es zeigt: Die Zusammenarbeit funktioniert. Ich reagiere schnell, bin flexibel und halte, was ich verspreche.</p>
         </div>
         <ul class="about-highlights">
@@ -1351,7 +1492,7 @@
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Zuverlässig &amp; pünktlich</li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Vielseitig einsetzbar</li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Kurzfristig verfügbar</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Kocht gerne für deine Gäste</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Gelernter Koch</li>
         </ul>
       </div>
     </div>
@@ -1495,6 +1636,182 @@
     applyTheme(next);
   });
 
+
+
+  /* ── Partikel-Engine: Pollen über dem Farn (Canvas, kein WebGL nötig) ── */
+  (function () {
+    var canvas = document.getElementById('heroParticles');
+    if (!canvas || reduceMotion) { if (canvas) canvas.remove(); return; }
+    var ctx = canvas.getContext('2d');
+    var heroEl = document.querySelector('.hero');
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var W, H, parts = [], running = true;
+    var mouse = { x: -9999, y: -9999 };
+    var gust = 0, lastY = window.scrollY;
+
+    function makeSprite(color) {
+      var c = document.createElement('canvas');
+      c.width = c.height = 32;
+      var g = c.getContext('2d');
+      var grad = g.createRadialGradient(16, 16, 0, 16, 16, 16);
+      grad.addColorStop(0, color);
+      grad.addColorStop(0.35, color.replace('1)', '0.5)'));
+      grad.addColorStop(1, color.replace('1)', '0)'));
+      g.fillStyle = grad;
+      g.fillRect(0, 0, 32, 32);
+      return c;
+    }
+    var sprites = [
+      makeSprite('rgba(143,227,182,1)'),
+      makeSprite('rgba(240,178,106,1)'),
+      makeSprite('rgba(87,186,140,1)'),
+      makeSprite('rgba(244,250,245,1)')
+    ];
+
+    function resize() {
+      var r = heroEl.getBoundingClientRect();
+      W = r.width; H = r.height;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var N = W < 1020 ? 110 : 300;
+    for (var i = 0; i < N; i++) {
+      var z = 0.35 + Math.random() * 0.65;
+      parts.push({
+        x: Math.random() * W, y: Math.range ? 0 : Math.random() * H,
+        vx: 0, vy: 0, z: z,
+        r: (0.9 + Math.random() * 2.2) * z,
+        s: sprites[(Math.random() * 4) | 0],
+        tw: Math.random() * Math.PI * 2
+      });
+    }
+
+    heroEl.addEventListener('mousemove', function (e) {
+      var r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+    });
+    heroEl.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      gust += Math.min(Math.abs(y - lastY), 60) * 0.015;
+      lastY = y;
+    }, { passive: true });
+
+    var t = 0;
+    function frame() {
+      if (!running) return;
+      t += 16;
+      if (window.scrollY > heroEl.offsetHeight || document.hidden) {
+        requestAnimationFrame(frame);
+        return;
+      }
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+      gust *= 0.94;
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        var ang = Math.sin(p.x * 0.0011 + t * 0.00035) * 1.8 + Math.cos(p.y * 0.0013 - t * 0.00028) * 1.8;
+        p.vx += Math.cos(ang) * 0.014 * p.z;
+        p.vy += Math.sin(ang) * 0.011 * p.z - 0.012 * p.z - gust * 0.05 * p.z;
+        var dx = p.x - mouse.x, dy = p.y - mouse.y;
+        var d2 = dx * dx + dy * dy;
+        if (d2 < 19600) {
+          var d = Math.sqrt(d2) || 1;
+          var f = (1 - d / 140) * 1.1;
+          p.vx += (dx / d) * f; p.vy += (dy / d) * f;
+        }
+        p.vx *= 0.965; p.vy *= 0.965;
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < -20) p.x = W + 18; if (p.x > W + 20) p.x = -18;
+        if (p.y < -20) p.y = H + 18; if (p.y > H + 20) p.y = -18;
+        var a = p.z * (0.38 + 0.34 * Math.sin(t * 0.0021 + p.tw));
+        ctx.globalAlpha = Math.max(0.05, a);
+        var sz = p.r * 7;
+        ctx.drawImage(p.s, p.x - sz / 2, p.y - sz / 2, sz, sz);
+      }
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = 'source-over';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  /* Logo-Intro: zeichnet sich gross im Hero, fliegt in die Nav, Partikel-Pop */
+  (function () {
+    var fly = document.getElementById('logoFly');
+    var navMark = document.querySelector('.nav-logo .logo-mark');
+    if (!fly || !navMark) return;
+    if (reduceMotion || !fly.animate) {
+      document.body.classList.add('logo-landed');
+      fly.remove();
+      return;
+    }
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var startScale = Math.min(vw, vh) * 0.32 / 28;
+    var sx = vw / 2 - 14, sy = vh * 0.4 - 14;
+    var t = navMark.getBoundingClientRect();
+    var tx = t.left, ty = t.top;
+    fly.classList.add('go');
+    var landed = false;
+    function land() {
+      if (landed) return;
+      landed = true;
+      document.body.classList.add('logo-landed');
+      fly.remove();
+      burst();
+    }
+    var anim = fly.animate([
+      { transform: 'translate(' + sx + 'px,' + (sy + 40) + 'px) scale(' + startScale + ') rotate(-22deg)', opacity: 0, offset: 0 },
+      { transform: 'translate(' + sx + 'px,' + sy + 'px) scale(' + startScale + ') rotate(-6deg)', opacity: 1, offset: 0.22 },
+      { transform: 'translate(' + sx + 'px,' + sy + 'px) scale(' + (startScale * 1.04) + ') rotate(2deg)', opacity: 1, offset: 0.52 },
+      { transform: 'translate(' + (tx + (sx - tx) * 0.12) + 'px,' + (ty + (sy - ty) * 0.06) + 'px) scale(0.82) rotate(14deg)', opacity: 1, offset: 0.86, easing: 'cubic-bezier(0.6,-0.1,0.2,1)' },
+      { transform: 'translate(' + tx + 'px,' + ty + 'px) scale(1.18) rotate(-5deg)', opacity: 1, offset: 0.94 },
+      { transform: 'translate(' + tx + 'px,' + ty + 'px) scale(1) rotate(0deg)', opacity: 1, offset: 1 }
+    ], { duration: 2100, delay: 280, easing: 'cubic-bezier(0.45,0,0.2,1)', fill: 'forwards' });
+    anim.onfinish = land;
+    setTimeout(land, 3000);
+    function burst() {
+      /* Partikel-Pop an der Landestelle */
+      var colors = ['#8FE3B6', '#F0B26A', '#57BA8C', '#8FE3B6', '#F0B26A', '#57BA8C'];
+      for (var i = 0; i < 6; i++) {
+        var p = document.createElement('span');
+        p.className = 'logo-burst';
+        p.style.background = colors[i];
+        p.style.left = (tx + 14) + 'px';
+        p.style.top = (ty + 14) + 'px';
+        document.body.appendChild(p);
+        var ang = (i / 6) * Math.PI * 2 - 0.5;
+        var dist = 26 + (i % 3) * 12;
+        p.animate([
+          { transform: 'translate(0,0) scale(1)', opacity: 1 },
+          { transform: 'translate(' + Math.cos(ang) * dist + 'px,' + Math.sin(ang) * dist + 'px) scale(0.2)', opacity: 0 }
+        ], { duration: 600 + i * 40, easing: 'cubic-bezier(0.2,0.8,0.3,1)', fill: 'forwards' }).onfinish = (function (el) {
+          return function () { el.remove(); };
+        })(p);
+      }
+    }
+  })();
+
+  /* Mäh-Band: Grasbüschel generieren */
+  var tallLayer = document.getElementById('tallLayer');
+  var cutLayer = document.getElementById('cutLayer');
+  if (tallLayer && cutLayer) {
+    var tufts = '';
+    for (var x = -14; x < 1224; x += 34) {
+      var flip = Math.round(x / 34) % 2 ? ' scale(-1,1) translate(-' + (2 * x + 52) + ',0)' : '';
+      tufts += '<use href="#tuft-tall" transform="translate(' + x + ',0)' + flip + '"/>';
+    }
+    tallLayer.innerHTML = tufts;
+    var stubble = '';
+    for (var x2 = -14; x2 < 1224; x2 += 38) {
+      stubble += '<use href="#tuft-cut" transform="translate(' + x2 + ',0)"/>';
+    }
+    cutLayer.innerHTML = stubble;
+  }
+
   /* Nav + Progress + FAB + Parallax */
   var nav = document.getElementById('nav');
   var hero = document.querySelector('.hero');
@@ -1502,6 +1819,14 @@
   var progress = document.getElementById('progress');
   var fab = document.getElementById('fab');
   var parallaxEls = document.querySelectorAll('.band-bg, .gebiet-bg');
+  var mowBand = document.getElementById('mowBand');
+  var uncutRect = document.getElementById('uncutRect');
+  var mowerG = document.getElementById('mowerG');
+  var screwG = document.getElementById('screwG');
+  var screwSlot = document.getElementById('screwSlot');
+  var threads = document.getElementById('threads');
+  var screwWrap = document.querySelector('.screw-wrap');
+  var leaves = Array.prototype.slice.call(document.querySelectorAll('.leaf'));
   var ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -1525,6 +1850,49 @@
             el.style.transform = 'translateY(' + Math.max(-limit, Math.min(limit, raw)) + 'px)';
           }
         });
+
+        /* Rasenmähen: Fortschritt = Position des Bands im Viewport */
+        if (mowBand && uncutRect && mowerG) {
+          var mr = mowBand.getBoundingClientRect();
+          if (mr.bottom > -50 && mr.top < window.innerHeight + 50) {
+            var mp = (window.innerHeight - mr.top) / (window.innerHeight * 0.85 + mr.height);
+            mp = Math.max(0, Math.min(1, mp));
+            var cutX = mp * 1290 - 45;
+            uncutRect.setAttribute('x', Math.max(0, cutX));
+            var bob = Math.sin(mp * 46) * 1.6;
+            mowerG.setAttribute('transform', 'translate(' + cutX + ',' + (150 + bob) + ')');
+          }
+        }
+
+        /* Schraube: dreht sich rein, Gewinde wandert */
+        if (screwG && screwWrap) {
+          var sr = screwWrap.getBoundingClientRect();
+          if (sr.bottom > 0 && sr.top < window.innerHeight) {
+            var sp = (window.innerHeight - sr.top) / (window.innerHeight + sr.height);
+            sp = Math.max(0, Math.min(1, sp));
+            screwG.setAttribute('transform', 'translate(0,' + (sp * 38 - 14) + ')');
+            if (screwSlot) {
+              var ang = sp * 1080;
+              var w = Math.abs(Math.cos(ang * Math.PI / 180)) * 7 + 1;
+              screwSlot.setAttribute('x', String(24 - w / 2));
+              screwSlot.setAttribute('width', String(w));
+            }
+            if (threads) { threads.setAttribute('transform', 'translate(0,' + (-(sp * 80) % 10) + ')'); }
+          }
+        }
+
+        /* Blätter: schweben mit dem Scrollen */
+        if (leaves.length) {
+          leaves.forEach(function (leaf, i) {
+            var speed = i === 0 ? 0.42 : 0.28;
+            var phase = i === 0 ? 0 : 2.4;
+            var cycle = window.innerHeight + 260;
+            var ly = ((y * speed + i * 420) % cycle) - 130;
+            var lx = Math.sin(y / 170 + phase) * 36;
+            var lr = (y / 7 + i * 80) % 360;
+            leaf.style.transform = 'translate(' + lx + 'px,' + ly + 'px) rotate(' + lr + 'deg)';
+          });
+        }
       }
       ticking = false;
     });
