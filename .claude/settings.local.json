@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/micheletisch/.claude/local/**)",
+      "Read(//usr/local/bin/**)",
+      "Read(//Users/micheletisch/.nvm/versions/**)",
+      "Bash(\"/Users/micheletisch/Library/Application Support/Claude/claude-code-vm/2.1.170/claude\" mcp add magic --scope user --env API_KEY=\"21st_sk_c7413cc76173fc054ecb2a9662b1f540e938bcfbfcb5df64309ef115d246ae27\" -- npx -y @21st-dev/magic@latest)",
+      "Bash(cp /Users/micheletisch/.claude.json /Users/micheletisch/.claude.json.bak)",
+      "Bash(python3 -c ' *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Backup: Ist-Zustand vor Website 2.0 Redesign *)",
+      "Bash(git checkout *)"
+    ]
+  }
+}
