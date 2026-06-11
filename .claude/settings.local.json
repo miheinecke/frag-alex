@@ -10,7 +10,19 @@
       "Bash(git init *)",
       "Bash(git add *)",
       "Bash(git commit -m 'Backup: Ist-Zustand vor Website 2.0 Redesign *)",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "Read(//Users/micheletisch/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/8dc6fa5c-65fc-4c64-a4e2-2c7f3a5793f4/4ae1deb9-dea9-4e01-a0a8-bf8e8a1df316/skills/ui-ux-pro-max/**)",
+      "Bash(python3 scripts/search.py \"home services handyman garden local service warm premium glassmorphism\" --design-system -p \"Frag Alex\" -f markdown)",
+      "Bash(python3 scripts/search.py \"green nature eco garden wellness organic\" --domain color -n 6)",
+      "Bash(python3 scripts/search.py \"warm friendly premium serif elegant approachable\" --domain typography -n 6)",
+      "Bash(python3 scripts/search.py \"glassmorphism\" --domain style -n 2)",
+      "Bash(python3 scripts/search.py \"local service trust hero social proof pricing faq\" --domain landing -n 3)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//opt/homebrew/**)",
+      "Bash(/usr/bin/env bash *)",
+      "Bash(brew --version)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git commit -m 'Website 2.0: Komplettes Redesign nach Design-System «Warm Glass» *)"
     ]
   }
 }
