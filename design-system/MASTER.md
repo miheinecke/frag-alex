@@ -171,3 +171,41 @@ NICHT brand-bright (3.7:1). srv-tag: --accent-strong #8F5017. Dark-Btn: Grund #5
 ### Gestrichen (Anti-Patterns dieses Brands)
 Caveat/Handschrift · Klebeband · Karten-Rotation · Zollstock · Holz-Gradients ·
 Fraunces-Serifen · Glas-Schimmer-Sweeps · 3D-Tilt → wirkt «gebastelt»
+
+---
+
+## V4 «Ein Tag mit Alex» — React-Rebuild (Juni 2026) ← AKTUELL
+
+Feedback: «zu verbastelt, muss aus einem Guss kommen» + Wunsch React/JSX + ultra-realistisch
+mit thematischen Animationen. → Kompletter Neubau als Vite+React-App in `react/`.
+
+### Konzept
+Die Seite erzählt **einen Arbeitstag**: Jede Leistung ist eine fotorealistische Szene mit
+Uhrzeit-Label («07:00 — Im Garten» … «18:00 — Bei deinen Gästen»). Licht ist das Leitmotiv:
+Morgenstrahlen → Taschenlampe → Kerzenlicht → Glühwürmchen am Abend.
+
+### Architektur
+- `react/src/content.js` — ALLE Texte zentral (Aline-Stand, gelernter Koch)
+- `react/src/anim.js` — EINE Motion-Sprache (fadeUp/stagger/EASE) für alles
+- `react/src/components.jsx` — Nav, Hero, Ticker, Szenen, Ablauf, Preise, About, FAQ, Area, Kontakt
+- framer-motion: whileInView-Reveals, useScroll-Parallax (einheitlich ±6%), Scroll-Progress
+- Magic MCP (21st.dev) genutzt: maskiertes Grid-Linien-Motiv als Sektions-Textur übernommen
+
+### Die EINE krasse Sache pro Szene (statt Gimmick-Stapel)
+- Hero 06:30: Sonnenstaub-Partikel (Canvas, Maus-Repulsion, Scroll-Gust) + God-Rays
+- Garten 07:00: Mäh-Band (Scroll schneidet Gras) als Szenen-Auftakt
+- Werkstatt 09:30: **Spotlight-Maske folgt der Maus** über dunkler Werkzeugwand
+  (Touch: automatischer Lampen-Schwenk) + Hinweis «Beweg die Maus»
+- Apero 18:00: warme Kerzen-Vignette + wenige warme Partikel
+- Kontakt: Glühwürmchen (warme Partikel) auf Nacht-Gradient
+
+### Gelernt (Tooling)
+- Eingebettete Previews laden teils mit `document.hidden=true` → framer-Entrances
+  via `ANIM_OK = !document.hidden` absichern (initial={false} im Hidden-Fall)
+- Preview-Screenshots nutzen eine zweite Capture-Instanz: bei React-Apps können
+  Captures jenseits des ersten Viewports leer sein → mit `elementFromPoint`/Eval verifizieren
+- Vite-Dev-Server in launch.json via `bash -lc` starten (Node-PATH)
+
+### Status statische Vorversion
+`index.html` (V3.1) bleibt als Referenz im Root; produktiv ist künftig `react/`
+(`npm run build` → `react/dist/`).

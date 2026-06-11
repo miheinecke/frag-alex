@@ -34,7 +34,20 @@
       "Bash(curl -s \"https://unsplash.com/napi/search/photos?query=gardener%20trimming%20hedge&per_page=5\")",
       "Bash(python3 scripts/search.py \"immersive particles webgl dark 3d interactive\" --domain style -n 3)",
       "Bash(curl -s \"https://unsplash.com/napi/search/photos?query=green%20leaf%20white%20background%20isolated&per_page=8\")",
-      "Bash(git commit -m 'V3.1 Immersive: Partikel-Hero, Logo-Flug, Mäh-Band, echte Blätter, neuer Claim *)"
+      "Bash(git commit -m 'V3.1 Immersive: Partikel-Hero, Logo-Flug, Mäh-Band, echte Blätter, neuer Claim *)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sS -o node.tar.gz \"https://nodejs.org/dist/v24.16.0/node-v24.16.0-darwin-arm64.tar.gz\")",
+      "Bash(curl -sS -o SHASUMS256.txt \"https://nodejs.org/dist/v24.16.0/SHASUMS256.txt\")",
+      "Bash(awk '{print \"Grösse:\", $5}')",
+      "Bash(shasum -a 256 -c -)",
+      "Bash(mkdir -p ~/.local)",
+      "Read(//Users/micheletisch/.local/**)",
+      "Bash(tar -xzf /tmp/node.tar.gz)",
+      "Bash(rm -f node)",
+      "Bash(ln -s node-v24.16.0-darwin-arm64 node)",
+      "Bash(printf '\\\\n# Node.js \\(Benutzer-Installation, 2026-06-11\\)\\\\nexport PATH=\"$HOME/.local/node/bin:$PATH\"\\\\n')",
+      "Read(//Users/micheletisch/**)",
+      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npm run build --prefix react)"
     ]
   }
 }
