@@ -209,3 +209,34 @@ Morgenstrahlen → Taschenlampe → Kerzenlicht → Glühwürmchen am Abend.
 ### Status statische Vorversion
 `index.html` (V3.1) bleibt als Referenz im Root; produktiv ist künftig `react/`
 (`npm run build` → `react/dist/`).
+
+---
+
+## V5 «Die Liste» — Creative-Director-Neubau (Juni 2026) ← AKTUELL
+
+Brief: Herzensprojekt, «richtig schön, aus einem Guss», Agentur-Niveau (Apple/Stripe/Linear),
+keine Stockfotos, kein Rasenmäher, brutal ehrliche V4-Kritik.
+
+### V4-Kritik (Kurzfassung)
+Unsplash-Zufallsbilder = Vertrauenskiller · Effekt-Stapel statt Handschrift ·
+keine Weissräume · vier dunkle Szenen am Stück = monoton.
+
+### Konzept
+**Keine Fotos** (ehrlicher als Stock — bis echte Alex-Fotos existieren).
+Die Marke hat eine eigene Geste: das Häkchen. Die Site IST die Haushalts-Liste,
+die Alex abhakt. Hero: 4 Todos streichen sich durch → «Du fragst. Ich mach's.»
+
+### System
+- Palette: Papier `#FBFAF7` / Tinte `#151915` / EIN Grün `#0E5B40` (+ Mint auf Dunkel).
+  Kontakt = der einzige grüne Vollflächen-Moment. 12 Kontrastpaare ≥ AA verifiziert.
+- Typo: **Geist** (alles) + **Geist Mono** (Kicker/Nummern) + **Instrument Serif italic**
+  nur für einzelne Akzentwörter («mach's.», «abhaken», «auf Anfrage»).
+- Layout: max-w 1120, Hairlines, Riesen-Weissraum, Preise als Schweizer Tabelle
+  (tabular-nums, Count-up), Leistungen als nummerierter Index (Hover: Häkchen + 10px-Shift),
+  Kontakt als grosse Link-Zeilen mit Kreis-Pfeil (Hover: -45°).
+- Motion: EIN Reveal (IO + CSS-Transition, 0.65s) + Hero-Checklist (CSS-Keyframes,
+  Stagger 0.42s) + Claim-Rise. Sonst nichts. `prefers-reduced-motion` & Hidden-Kontexte safe.
+
+### Tooling-Lektion
+framer-motion-Reveals (rAF) frieren in der Screenshot-Capture-Instanz ein;
+IO + CSS-Transitions laufen überall → Reveal framer-frei gebaut (Bundle: 53 KB gzip statt 96).

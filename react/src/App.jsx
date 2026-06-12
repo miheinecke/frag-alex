@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
-  Nav, Hero, Ticker, Intro, MowBand,
-  SceneGarten, SceneWerkstatt, SceneUnterwegs, SceneApero,
-  RestRow, Ablauf, Quote, Preise, About, Faq, Area, Kontakt,
-  Footer, Fab, Progress,
+  Nav, Hero, ServicesIndex, Ablauf, Quote, Preise,
+  About, Faq, Area, Contact, Footer,
 } from './components'
 
 export default function App() {
@@ -31,29 +29,19 @@ export default function App() {
   return (
     <>
       <a href="#main" className="skip-link">Zum Inhalt springen</a>
-      <div className="grain" aria-hidden="true" />
-      <Progress />
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <main id="main">
         <Hero />
-        <Ticker />
-        <Intro />
-        <MowBand />
-        <SceneGarten />
-        <SceneWerkstatt />
-        <SceneUnterwegs />
-        <SceneApero />
-        <RestRow />
+        <ServicesIndex />
         <Ablauf />
         <Quote />
         <Preise />
         <About />
         <Faq />
         <Area />
-        <Kontakt />
+        <Contact />
       </main>
       <Footer />
-      <Fab />
     </>
   )
 }

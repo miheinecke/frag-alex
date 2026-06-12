@@ -163,4 +163,12 @@ export const contact = {
   note: 'Antwort in der Regel innert weniger Stunden',
 }
 
+
+export const heroTodos = ['Hecke schneiden', 'IKEA-Schrank aufbauen', 'Apero für 20 Gäste', 'Keller ausräumen']
+
+export const heroFoot = {
+  left: 'Langnau am Albis — Zürich · Anfahrt bis 30 Min. kostenlos',
+  right: 'Antwort innert Stunden',
+}
+
 export const wa = 'https://wa.me/41762882024'
