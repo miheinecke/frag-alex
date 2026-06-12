@@ -483,49 +483,50 @@ footer a:hover { color: #fff; }
 }
 
 
-/* ════════ HAUS-BAU ════════ */
-.builder {
-  position: fixed; right: clamp(0.5rem, 1.8vw, 1.4rem); bottom: clamp(0.5rem, 1.8vw, 1.4rem);
-  width: clamp(76px, 9vw, 112px); height: clamp(76px, 9vw, 112px);
+/* ════════ SACKMESSER «ORIGINAL» ════════ */
+.knife {
+  position: fixed; right: clamp(0.3rem, 1.4vw, 1.2rem); bottom: clamp(0.3rem, 1.4vw, 1.2rem);
+  width: clamp(118px, 14vw, 175px); height: clamp(118px, 14vw, 175px);
   z-index: 80; pointer-events: none;
-  color: var(--ink);
-  opacity: 0;
-  transition: opacity 0.6s ease, color 0.4s;
+  opacity: 0; transition: opacity 0.6s ease;
+  filter: drop-shadow(0 2px 4px rgba(20, 25, 20, 0.18));
 }
-.builder.s1, .builder.s2, .builder.s3, .builder.s4, .builder.s5, .builder.s6, .builder.s7 { opacity: 0.92; }
-.builder svg { width: 100%; height: 100%; overflow: visible; }
-.builder .bp, .builder .bp7 circle, .builder .bp7 path {
-  fill: none; stroke: currentColor; stroke-width: 2;
-  stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: var(--len);
-  stroke-dashoffset: var(--len);
-  transition: stroke-dashoffset 0.9s var(--ease);
-}
-/* Pro Sektion zeichnet sich ein Teil */
-.builder.s1 .bp1,
-.builder.s2 .bp1, .builder.s2 .bp2,
-.builder.s3 .bp1, .builder.s3 .bp2, .builder.s3 .bp3,
-.builder.s4 .bp1, .builder.s4 .bp2, .builder.s4 .bp3, .builder.s4 .bp4,
-.builder.s5 .bp1, .builder.s5 .bp2, .builder.s5 .bp3, .builder.s5 .bp4, .builder.s5 .bp5,
-.builder.s6 .bp1, .builder.s6 .bp2, .builder.s6 .bp3, .builder.s6 .bp4, .builder.s6 .bp5, .builder.s6 .bp6,
-.builder.s7 .bp { stroke-dashoffset: 0; }
-/* Finale: grünes Häkchen über dem Haus */
-.builder .bp7 { color: var(--green); }
-.builder.s7 .bp7 circle { stroke-dashoffset: 0; transition-delay: 0.25s; }
-.builder.s7 .bp7 path { stroke-dashoffset: 0; transition-delay: 0.85s; }
-.builder.s7 svg { animation: builtDone 0.7s var(--ease) 1.3s; }
-@keyframes builtDone {
+.knife.s1, .knife.s2, .knife.s3, .knife.s4, .knife.s5, .knife.s6, .knife.s7 { opacity: 1; }
+.knife svg { width: 100%; height: 100%; overflow: visible; }
+.kp { transition: transform 0.8s var(--ease), opacity 0.35s; }
+/* Original-Farben — fix, kein Token (es ist DAS Messer) */
+.kp .steel { fill: #ECEEE9; stroke: #343A34; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.kp .detail { fill: none; stroke: #343A34; stroke-width: 1.2; stroke-linecap: round; opacity: 0.65; }
+.kp .wire { fill: none; stroke: #4A524A; stroke-width: 2.6; stroke-linecap: round; }
+.kp .hole { fill: var(--paper); stroke: #343A34; stroke-width: 1; }
+.kp .scale { fill: #CC1F2F; stroke: #8E1320; stroke-width: 2; }
+.kp .gloss { fill: none; stroke: rgba(255, 255, 255, 0.55); stroke-width: 2; stroke-linecap: round; }
+.kp .ring { fill: none; stroke: #6A716A; stroke-width: 2.6; }
+.kp .shield { fill: none; stroke: #FFFFFF; stroke-width: 1.6; stroke-linejoin: round; }
+.kp .crossw { fill: #FFFFFF; stroke: none; }
+.kp-check .badge { fill: var(--green); stroke: none; }
+.kp-check .tick { fill: none; stroke: #FFFFFF; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* Start: Korpus klappt klein auf, Werkzeuge & Häkchen verborgen */
+.kp-body { transform: scale(0.55) rotate(-8deg); transform-origin: 100px 120px; opacity: 0; }
+.knife.s1 .kp-body, .knife.s2 .kp-body, .knife.s3 .kp-body, .knife.s4 .kp-body,
+.knife.s5 .kp-body, .knife.s6 .kp-body, .knife.s7 .kp-body { transform: none; opacity: 1; }
+.kp-blade, .kp-cap, .kp-can, .kp-small, .kp-cork { opacity: 0; }
+.kp-check { transform: scale(0); opacity: 0; }
+/* Fächer wie auf dem Produktfoto — pro Sektion ein Werkzeug */
+.knife.s2 .kp-blade, .knife.s3 .kp-blade, .knife.s4 .kp-blade, .knife.s5 .kp-blade, .knife.s6 .kp-blade, .knife.s7 .kp-blade { transform: rotate(148deg); opacity: 1; }
+.knife.s3 .kp-cap, .knife.s4 .kp-cap, .knife.s5 .kp-cap, .knife.s6 .kp-cap, .knife.s7 .kp-cap { transform: rotate(113deg); opacity: 1; }
+.knife.s4 .kp-can, .knife.s5 .kp-can, .knife.s6 .kp-can, .knife.s7 .kp-can { transform: rotate(-122deg); opacity: 1; }
+.knife.s5 .kp-small, .knife.s6 .kp-small, .knife.s7 .kp-small { transform: rotate(155deg); opacity: 1; }
+.knife.s6 .kp-cork, .knife.s7 .kp-cork { transform: rotate(-110deg); opacity: 1; }
+.knife.s7 .kp-check { transform: scale(1); opacity: 1; transition-delay: 0.35s; }
+.knife.s7 svg { animation: knifeDone 0.7s var(--ease) 0.55s; }
+@keyframes knifeDone {
   0% { transform: rotate(0); }
-  30% { transform: rotate(-5deg) scale(1.05); }
-  65% { transform: rotate(3.5deg); }
+  30% { transform: rotate(-6deg) scale(1.05); }
+  65% { transform: rotate(4deg); }
   100% { transform: rotate(0); }
 }
-.builder.on-dark { color: rgba(245, 250, 246, 0.9); }
-.builder.on-dark .bp7 { color: var(--mint); }
-@media (prefers-reduced-motion: reduce) {
-  .builder .bp, .builder .bp7 circle, .builder .bp7 path { transition: none; }
-  .builder.s7 svg { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .kp { transition: none; } .knife.s7 svg { animation: none; } }
 
 /* ════════ REVEAL ════════ */
 .rv { opacity: 0; transform: translateY(16px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }

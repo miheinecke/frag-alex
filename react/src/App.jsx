@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
   Nav, Hero, ServicesIndex, Ablauf, Quote, Preise,
-  About, Faq, Area, Contact, Footer, HouseBuilder,
+  About, Faq, Area, Contact, Footer, KnifeBuilder,
 } from './components'
 
 export default function App() {
@@ -30,7 +30,7 @@ export default function App() {
     <>
       <a href="#main" className="skip-link">Zum Inhalt springen</a>
       <Nav theme={theme} onToggleTheme={toggleTheme} />
-      <HouseBuilder />
+      <KnifeBuilder />
       <main id="main">
         <Hero />
         <ServicesIndex />
