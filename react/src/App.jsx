@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
+const Knife3D = lazy(() => import('./Knife3D'))
 import {
   Nav, Hero, ServicesIndex, Ablauf, Quote, Preise,
-  About, Faq, Area, Contact, Footer, KnifeBuilder,
+  About, Faq, Area, Contact, Footer,
 } from './components'
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
     <>
       <a href="#main" className="skip-link">Zum Inhalt springen</a>
       <Nav theme={theme} onToggleTheme={toggleTheme} />
-      <KnifeBuilder />
+      <Suspense fallback={null}><Knife3D /></Suspense>
       <main id="main">
         <Hero />
         <ServicesIndex />
