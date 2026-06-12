@@ -509,11 +509,13 @@ footer a:hover { color: #fff; }
   }
   /* FAQ-Liste leicht nach rechts */
   #faq .faq-list { margin-left: clamp(0px, 18%, 240px); }
+  /* Messer links → Index-Liste rückt nach rechts in die eigene Spur */
+  #leistungen .index { margin-left: clamp(0px, 22%, 270px); }
   /* Messer rechts → Inhalt links halten */
   #alex .about-lead { max-width: 56%; }
   #alex .about-cols { max-width: 58%; grid-template-columns: 1fr; gap: 0; }
   #alex .about-checks { max-width: 58%; }
-  #ablauf .steps { max-width: 76%; grid-template-columns: repeat(2, 1fr); }
+  #ablauf .steps { max-width: 68%; grid-template-columns: repeat(2, 1fr); }
   #ablauf .sec-head > div { max-width: 560px; }
 }
 
