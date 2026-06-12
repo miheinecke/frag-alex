@@ -80,7 +80,13 @@
       "Bash(mv knife.glb knife-open.glb)",
       "Bash(python3 -c \"import time; time.sleep\\(70\\)\")",
       "Bash(curl -sL \"https://d3u0tzju9qaucj.cloudfront.net/7d051b5a-7bfe-49fe-a484-24e7b3a9458a/e244bde3-513f-433a-b9ef-db5695f5d76d.glb\" -o closed-raw.glb)",
-      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npx -y @gltf-transform/cli optimize closed-raw.glb knife-closed.glb --compress false --texture-compress webp --texture-size 2048)"
+      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npx -y @gltf-transform/cli optimize closed-raw.glb knife-closed.glb --compress false --texture-compress webp --texture-size 2048)",
+      "mcp__b93994aa-fef0-4606-9935-40e7b144f385__generate_image",
+      "Bash(python3 -c \"import time; time.sleep\\(25\\)\")",
+      "Bash(python3 -c \"import time; time.sleep\\(90\\)\")",
+      "Bash(python3 -c \"import time; time.sleep\\(60\\)\")",
+      "Bash(curl -sL \"https://d3u0tzju9qaucj.cloudfront.net/7d051b5a-7bfe-49fe-a484-24e7b3a9458a/a1d84154-0b22-4337-a2fc-91aa330d20c8.glb\" -o closed2-raw.glb)",
+      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npx -y @gltf-transform/cli optimize closed2-raw.glb knife-closed.glb --compress false --texture-compress webp --texture-size 2048)"
     ]
   }
 }

@@ -497,6 +497,26 @@ footer a:hover { color: #fff; }
 .wrap { position: relative; z-index: 2; }
 .nav .wrap, .nav-inner { z-index: auto; }
 
+
+/* ════════ TEXT WEICHT DEM MESSER AUS (Desktop) ════════ */
+@media (min-width: 1021px) {
+  /* Messer links → Kopf nach rechts */
+  #leistungen .sec-head, #preise .sec-head, #faq .sec-head {
+    justify-content: flex-end;
+  }
+  #leistungen .sec-head > div, #preise .sec-head > div, #faq .sec-head > div {
+    max-width: 600px;
+  }
+  /* FAQ-Liste leicht nach rechts */
+  #faq .faq-list { margin-left: clamp(0px, 18%, 240px); }
+  /* Messer rechts → Inhalt links halten */
+  #alex .about-lead { max-width: 56%; }
+  #alex .about-cols { max-width: 58%; grid-template-columns: 1fr; gap: 0; }
+  #alex .about-checks { max-width: 58%; }
+  #ablauf .steps { max-width: 76%; grid-template-columns: repeat(2, 1fr); }
+  #ablauf .sec-head > div { max-width: 560px; }
+}
+
 /* ════════ REVEAL ════════ */
 .rv { opacity: 0; transform: translateY(16px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
 .rv.on { opacity: 1; transform: none; }
