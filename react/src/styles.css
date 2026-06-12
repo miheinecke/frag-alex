@@ -483,47 +483,49 @@ footer a:hover { color: #fff; }
 }
 
 
-/* ════════ RAND-CHECKLISTE ════════ */
-.edge {
-  position: fixed; right: clamp(0.8rem, 1.6vw, 1.6rem); top: 50%;
-  transform: translateY(-50%);
-  z-index: 80;
-  display: flex; flex-direction: column; align-items: center;
+/* ════════ HAUS-BAU ════════ */
+.builder {
+  position: fixed; right: clamp(0.5rem, 1.8vw, 1.4rem); bottom: clamp(0.5rem, 1.8vw, 1.4rem);
+  width: clamp(76px, 9vw, 112px); height: clamp(76px, 9vw, 112px);
+  z-index: 80; pointer-events: none;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 0.6s ease, color 0.4s;
 }
-.edge-line, .edge-fill {
-  position: absolute; top: 22px; width: 1px;
-  left: 50%; margin-left: -0.5px;
-}
-.edge-line { bottom: 22px; background: var(--line); }
-.edge-fill { background: var(--green); transition: height 0.5s var(--ease); }
-.edge-item {
-  width: 44px; height: 44px;
-  display: flex; align-items: center; justify-content: center;
-  background: transparent; border: none;
-  position: relative;
-}
-.edge-item svg {
-  width: 14px; height: 14px; overflow: visible;
-  fill: var(--paper);
-  transition: transform 0.3s var(--ease);
-}
-.edge-item svg rect { stroke: var(--line-2); stroke-width: 1.4; }
-.edge-item svg path {
-  fill: none; stroke: var(--green); stroke-width: 2;
+.builder.s1, .builder.s2, .builder.s3, .builder.s4, .builder.s5, .builder.s6, .builder.s7 { opacity: 0.92; }
+.builder svg { width: 100%; height: 100%; overflow: visible; }
+.builder .bp, .builder .bp7 circle, .builder .bp7 path {
+  fill: none; stroke: currentColor; stroke-width: 2;
   stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: 14; stroke-dashoffset: 14;
-  transition: stroke-dashoffset 0.45s var(--ease);
+  stroke-dasharray: var(--len);
+  stroke-dashoffset: var(--len);
+  transition: stroke-dashoffset 0.9s var(--ease);
 }
-.edge-item.done svg path { stroke-dashoffset: 0; }
-.edge-item.done svg rect { stroke: var(--green); }
-.edge-item:hover svg { transform: scale(1.25); }
-.edge.on-dark .edge-line { background: var(--line-dark); }
-.edge.on-dark .edge-fill { background: var(--mint); }
-.edge.on-dark .edge-item svg { fill: transparent; }
-.edge.on-dark .edge-item svg rect { stroke: rgba(245,250,246,0.4); }
-.edge.on-dark .edge-item svg path { stroke: var(--mint); }
-.edge.on-dark .edge-item.done svg rect { stroke: var(--mint); }
-@media (max-width: 1100px) { .edge { display: none; } }
+/* Pro Sektion zeichnet sich ein Teil */
+.builder.s1 .bp1,
+.builder.s2 .bp1, .builder.s2 .bp2,
+.builder.s3 .bp1, .builder.s3 .bp2, .builder.s3 .bp3,
+.builder.s4 .bp1, .builder.s4 .bp2, .builder.s4 .bp3, .builder.s4 .bp4,
+.builder.s5 .bp1, .builder.s5 .bp2, .builder.s5 .bp3, .builder.s5 .bp4, .builder.s5 .bp5,
+.builder.s6 .bp1, .builder.s6 .bp2, .builder.s6 .bp3, .builder.s6 .bp4, .builder.s6 .bp5, .builder.s6 .bp6,
+.builder.s7 .bp { stroke-dashoffset: 0; }
+/* Finale: grünes Häkchen über dem Haus */
+.builder .bp7 { color: var(--green); }
+.builder.s7 .bp7 circle { stroke-dashoffset: 0; transition-delay: 0.25s; }
+.builder.s7 .bp7 path { stroke-dashoffset: 0; transition-delay: 0.85s; }
+.builder.s7 svg { animation: builtDone 0.7s var(--ease) 1.3s; }
+@keyframes builtDone {
+  0% { transform: rotate(0); }
+  30% { transform: rotate(-5deg) scale(1.05); }
+  65% { transform: rotate(3.5deg); }
+  100% { transform: rotate(0); }
+}
+.builder.on-dark { color: rgba(245, 250, 246, 0.9); }
+.builder.on-dark .bp7 { color: var(--mint); }
+@media (prefers-reduced-motion: reduce) {
+  .builder .bp, .builder .bp7 circle, .builder .bp7 path { transition: none; }
+  .builder.s7 svg { animation: none; }
+}
 
 /* ════════ REVEAL ════════ */
 .rv { opacity: 0; transform: translateY(16px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }

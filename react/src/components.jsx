@@ -401,54 +401,47 @@ export function Contact() {
 }
 
 
-/* ───────── Rand-Checkliste · hakt die Seite beim Scrollen ab ───────── */
-const EDGE_SECTIONS = [
-  ['hero', 'Start'],
-  ['leistungen', 'Angebot'],
-  ['ablauf', 'Ablauf'],
-  ['preise', 'Preise'],
-  ['alex', 'Über Alex'],
-  ['faq', 'FAQ'],
-  ['kontakt', 'Kontakt'],
-]
+/* ───────── Haus-Bau · zeichnet sich beim Scrollen, 1 Teil pro Sektion ───────── */
+const BUILD_SECTIONS = ['hero', 'leistungen', 'ablauf', 'preise', 'alex', 'faq', 'kontakt']
 
-export function EdgeChecklist() {
-  const [done, setDone] = useState(ANIM_OK ? 0 : EDGE_SECTIONS.length)
+export function HouseBuilder() {
+  const [stage, setStage] = useState(ANIM_OK ? 0 : 7)
   const [onDark, setOnDark] = useState(false)
   useEffect(() => {
     const handler = () => {
-      const mid = window.innerHeight * 0.5
+      const mid = window.innerHeight * 0.55
       let idx = 0
-      EDGE_SECTIONS.forEach(([id], i) => {
+      BUILD_SECTIONS.forEach((id, i) => {
         const el = document.getElementById(id)
         if (el && el.getBoundingClientRect().top <= mid) idx = i
       })
-      /* Seitenende = alles erledigt */
-      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) idx = EDGE_SECTIONS.length - 1
-      setDone(idx + 1)
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) idx = BUILD_SECTIONS.length - 1
+      setStage(idx + 1)
       const k = document.getElementById('kontakt')
-      setOnDark(k ? k.getBoundingClientRect().top <= mid : false)
+      setOnDark(k ? k.getBoundingClientRect().top <= window.innerHeight * 0.8 : false)
     }
     handler()
     window.addEventListener('scroll', handler, { passive: true })
     window.addEventListener('resize', handler)
     return () => { window.removeEventListener('scroll', handler); window.removeEventListener('resize', handler) }
   }, [])
-  const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   return (
-    <nav className={`edge${onDark ? ' on-dark' : ''}`} aria-label="Seiten-Fortschritt">
-      <span className="edge-line" aria-hidden="true" />
-      <span className="edge-fill" aria-hidden="true" style={{ height: `${Math.max(0, done - 1) * 44}px` }} />
-      {EDGE_SECTIONS.map(([id, label], i) => (
-        <button key={id} className={`edge-item${i < done ? ' done' : ''}`} onClick={() => go(id)}
-          aria-label={label} aria-current={i === done - 1 ? 'true' : undefined} title={label}>
-          <svg viewBox="0 0 16 16" aria-hidden="true">
-            <rect x="1" y="1" width="14" height="14" rx="4" />
-            <path d="M4.5 8.4 L7 10.8 L11.5 5.6" />
-          </svg>
-        </button>
-      ))}
-    </nav>
+    <div className={`builder s${stage}${onDark ? ' on-dark' : ''}`} aria-hidden="true">
+      <svg viewBox="0 0 150 150">
+        <path className="bp bp1" style={{ '--len': 100 }} d="M30 118 H120" />
+        <path className="bp bp2" style={{ '--len': 55 }} d="M42 118 V72" />
+        <path className="bp bp2" style={{ '--len': 55 }} d="M108 118 V72" />
+        <path className="bp bp3" style={{ '--len': 118 }} d="M34 76 L75 42 L116 76" />
+        <path className="bp bp4" style={{ '--len': 85 }} d="M64 118 V96 Q64 91 69 91 H81 Q86 91 86 96 V118" />
+        <rect className="bp bp5" style={{ '--len': 62 }} x="92" y="84" width="15" height="15" rx="1.5" />
+        <path className="bp bp5" style={{ '--len': 32 }} d="M92 91.5 H107 M99.5 84 V99" />
+        <path className="bp bp6" style={{ '--len': 48 }} d="M94 60 V46 H103 V67" />
+        <g className="bp7" style={{ transformOrigin: '75px 22px' }}>
+          <circle style={{ '--len': 72 }} cx="75" cy="22" r="11" />
+          <path style={{ '--len': 18 }} d="M70 22.5 L73.8 26 L80.5 18.5" />
+        </g>
+      </svg>
+    </div>
   )
 }
 
