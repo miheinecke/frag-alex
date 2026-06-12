@@ -13,12 +13,12 @@ const HALF_PI = Math.PI / 2
    s = Grösse, ry/rx = Rotation, o = Deckkraft, open = auf/zu */
 const POSES = [
   { id: 'hero',       x: 0.62,  y: -0.04, s: 1.05, ry: 0.25,  rx: 0.10, o: 1.0,  open: false, m: { x: 0.34, y: 0.46, s: 0.5 } },
-  { id: 'leistungen', x: -0.58, y: 0.02,  s: 0.82, ry: 2.95,  rx: 0.30, o: 0.5,  open: true,  m: { x: -0.5, y: 0.38, s: 0.5, o: 0.35 } },
-  { id: 'ablauf',     x: 0.60,  y: -0.02, s: 0.92, ry: 4.30,  rx: 0.95, o: 0.55, open: true,  m: { x: 0.5, y: 0.38, s: 0.52, o: 0.4 } },
-  { id: 'preise',     x: 0.05,  y: 0.06,  s: 1.40, ry: 5.60,  rx: 0.35, o: 0.20, open: true,  m: { s: 1.0, o: 0.14 } },
-  { id: 'alex',       x: 0.56,  y: 0.0,   s: 0.74, ry: 6.28,  rx: 0.05, o: 0.55, open: true,  m: { x: 0.48, y: 0.4, s: 0.46, o: 0.4 } },
-  { id: 'faq',        x: -0.62, y: 0.0,   s: 0.70, ry: 7.60,  rx: 0.55, o: 0.45, open: true,  m: { x: -0.5, y: 0.42, s: 0.44, o: 0.35 } },
-  { id: 'kontakt',    x: 0.0,   y: -0.05, s: 0.85, ry: 9.10,  rx: 0.18, o: 0.9,  open: false, m: { y: 0.22, s: 0.58, o: 0.85 } },
+  { id: 'leistungen', x: -1.0,  y: 0.02,  s: 0.9,  ry: 2.95,  rx: 0.30, o: 0.6,  open: true,  m: { x: -0.85, y: 0.38, s: 0.55, o: 0.5 } },
+  { id: 'ablauf',     x: 1.02,  y: -0.02, s: 0.95, ry: 4.30,  rx: 0.95, o: 0.6,  open: true,  m: { x: 0.85, y: 0.38, s: 0.55, o: 0.5 } },
+  { id: 'preise',     x: -1.15, y: 0.06,  s: 1.2,  ry: 5.60,  rx: 0.35, o: 0.3,  open: false, m: { x: -0.95, s: 0.9, o: 0.25 } },
+  { id: 'alex',       x: 1.0,   y: 0.0,   s: 0.8,  ry: 8.40,  rx: 0.05, o: 0.6,  open: true,  m: { x: 0.85, y: 0.4, s: 0.5, o: 0.5 } },
+  { id: 'faq',        x: -1.05, y: 0.0,   s: 0.75, ry: 9.60,  rx: 0.55, o: 0.5,  open: true,  m: { x: -0.85, y: 0.42, s: 0.5, o: 0.45 } },
+  { id: 'kontakt',    x: 0.72,  y: -0.33, s: 0.62, ry: 11.60, rx: 0.18, o: 0.9,  open: false, m: { x: 0.55, y: 0.25, s: 0.5, o: 0.85 } },
 ]
 const poseFor = (i) => {
   const p = POSES[i]
