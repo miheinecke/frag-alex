@@ -483,36 +483,35 @@ footer a:hover { color: #fff; }
 }
 
 
-/* ════════ SACKMESSER «ORIGINAL» ════════ */
+/* ════════ SACKMESSER · Tinte, Papier, ein Grün ════════ */
 .knife {
-  position: fixed; right: clamp(0.3rem, 1.4vw, 1.2rem); bottom: clamp(0.3rem, 1.4vw, 1.2rem);
-  width: clamp(118px, 14vw, 175px); height: clamp(118px, 14vw, 175px);
+  position: fixed; right: clamp(0.4rem, 1.4vw, 1.1rem); bottom: clamp(0.4rem, 1.4vw, 1.1rem);
+  width: clamp(84px, 10vw, 126px); height: clamp(84px, 10vw, 126px);
   z-index: 80; pointer-events: none;
-  opacity: 0; transition: opacity 0.6s ease;
-  filter: drop-shadow(0 2px 4px rgba(20, 25, 20, 0.18));
+  color: var(--ink);
+  opacity: 0; transition: opacity 0.6s ease, color 0.4s;
 }
-.knife.s1, .knife.s2, .knife.s3, .knife.s4, .knife.s5, .knife.s6, .knife.s7 { opacity: 1; }
+.knife.s1, .knife.s2, .knife.s3, .knife.s4, .knife.s5, .knife.s6, .knife.s7 { opacity: 0.9; }
+.knife.bye { opacity: 0; }
 .knife svg { width: 100%; height: 100%; overflow: visible; }
 .kp { transition: transform 0.8s var(--ease), opacity 0.35s; }
-/* Original-Farben — fix, kein Token (es ist DAS Messer) */
-.kp .steel { fill: #ECEEE9; stroke: #343A34; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-.kp .detail { fill: none; stroke: #343A34; stroke-width: 1.2; stroke-linecap: round; opacity: 0.65; }
-.kp .wire { fill: none; stroke: #4A524A; stroke-width: 2.6; stroke-linecap: round; }
-.kp .hole { fill: var(--paper); stroke: #343A34; stroke-width: 1; }
-.kp .scale { fill: #CC1F2F; stroke: #8E1320; stroke-width: 2; }
-.kp .gloss { fill: none; stroke: rgba(255, 255, 255, 0.55); stroke-width: 2; stroke-linecap: round; }
-.kp .ring { fill: none; stroke: #6A716A; stroke-width: 2.6; }
-.kp .shield { fill: none; stroke: #FFFFFF; stroke-width: 1.6; stroke-linejoin: round; }
-.kp .crossw { fill: #FFFFFF; stroke: none; }
+.kp .steel { fill: var(--paper); stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; transition: fill 0.4s; }
+.kp .detail { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; opacity: 0.6; }
+.kp .wire { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; }
+.kp .hole { fill: var(--paper); stroke: currentColor; stroke-width: 1; }
+.kp .scale { fill: var(--paper); stroke: currentColor; stroke-width: 2.1; transition: fill 0.4s; }
+.kp .ring { fill: none; stroke: currentColor; stroke-width: 2.4; opacity: 0.7; }
+.kp .shield { fill: none; stroke: var(--green); stroke-width: 1.6; stroke-linejoin: round; }
+.kp .crossw { fill: var(--green); stroke: none; }
 .kp-check .badge { fill: var(--green); stroke: none; }
-.kp-check .tick { fill: none; stroke: #FFFFFF; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.kp-check .tick { fill: none; stroke: var(--paper); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
 /* Start: Korpus klappt klein auf, Werkzeuge & Häkchen verborgen */
 .kp-body { transform: scale(0.55) rotate(-8deg); transform-origin: 100px 120px; opacity: 0; }
 .knife.s1 .kp-body, .knife.s2 .kp-body, .knife.s3 .kp-body, .knife.s4 .kp-body,
 .knife.s5 .kp-body, .knife.s6 .kp-body, .knife.s7 .kp-body { transform: none; opacity: 1; }
 .kp-blade, .kp-cap, .kp-can, .kp-small, .kp-cork { opacity: 0; }
 .kp-check { transform: scale(0); opacity: 0; }
-/* Fächer wie auf dem Produktfoto — pro Sektion ein Werkzeug */
+/* Pro Sektion klappt ein Werkzeug auf */
 .knife.s2 .kp-blade, .knife.s3 .kp-blade, .knife.s4 .kp-blade, .knife.s5 .kp-blade, .knife.s6 .kp-blade, .knife.s7 .kp-blade { transform: rotate(148deg); opacity: 1; }
 .knife.s3 .kp-cap, .knife.s4 .kp-cap, .knife.s5 .kp-cap, .knife.s6 .kp-cap, .knife.s7 .kp-cap { transform: rotate(113deg); opacity: 1; }
 .knife.s4 .kp-can, .knife.s5 .kp-can, .knife.s6 .kp-can, .knife.s7 .kp-can { transform: rotate(-122deg); opacity: 1; }
@@ -526,6 +525,13 @@ footer a:hover { color: #fff; }
   65% { transform: rotate(4deg); }
   100% { transform: rotate(0); }
 }
+/* Dunkle Kontakt-Sektion: helle Striche, dunkle Füllungen, Mint-Akzente */
+.knife.on-dark { color: rgba(245, 250, 246, 0.92); }
+.knife.on-dark .kp .steel, .knife.on-dark .kp .scale, .knife.on-dark .kp .hole { fill: var(--green-night); }
+.knife.on-dark .kp .shield { stroke: var(--mint); }
+.knife.on-dark .kp .crossw { fill: var(--mint); }
+.knife.on-dark .kp-check .badge { fill: var(--mint); }
+.knife.on-dark .kp-check .tick { stroke: var(--green-night); }
 @media (prefers-reduced-motion: reduce) { .kp { transition: none; } .knife.s7 svg { animation: none; } }
 
 /* ════════ REVEAL ════════ */

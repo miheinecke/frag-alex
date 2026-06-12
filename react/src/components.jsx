@@ -406,6 +406,8 @@ const KNIFE_SECTIONS = ['hero', 'leistungen', 'ablauf', 'preise', 'alex', 'faq',
 
 export function KnifeBuilder() {
   const [stage, setStage] = useState(ANIM_OK ? 0 : 7)
+  const [onDark, setOnDark] = useState(false)
+  const [bye, setBye] = useState(false)
   useEffect(() => {
     const handler = () => {
       const mid = window.innerHeight * 0.55
@@ -416,6 +418,11 @@ export function KnifeBuilder() {
       })
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) idx = KNIFE_SECTIONS.length - 1
       setStage(idx + 1)
+      const k = document.getElementById('kontakt')
+      setOnDark(k ? k.getBoundingClientRect().top <= window.innerHeight * 0.8 : false)
+      /* Story erzählt: beim Footer leise verabschieden */
+      const f = document.querySelector('footer')
+      setBye(f ? f.getBoundingClientRect().top <= window.innerHeight - 40 : false)
     }
     handler()
     window.addEventListener('scroll', handler, { passive: true })
@@ -423,7 +430,7 @@ export function KnifeBuilder() {
     return () => { window.removeEventListener('scroll', handler); window.removeEventListener('resize', handler) }
   }, [])
   return (
-    <div className={`knife s${stage}`} aria-hidden="true">
+    <div className={`knife s${stage}${onDark ? ' on-dark' : ''}${bye ? ' bye' : ''}`} aria-hidden="true">
       <svg viewBox="0 0 200 200">
         <g transform="rotate(-32 100 120)">
           {/* Grosse Klinge */}
@@ -454,7 +461,6 @@ export function KnifeBuilder() {
           <g className="kp kp-body">
             <circle className="ring" cx="45" cy="124" r="5.5" />
             <rect className="scale" x="52" y="108" width="96" height="24" rx="12" />
-            <path className="gloss" d="M58 113.5 C85 111 115 111 142 113.5" />
             <path className="shield" d="M100 110.5 L107 113 V120 C107 124.5 104 127.5 100 129 C96 127.5 93 124.5 93 120 V113 Z" />
             <rect className="crossw" x="98.5" y="115" width="3" height="9.5" rx="0.8" />
             <rect className="crossw" x="95.3" y="118.2" width="9.5" height="3" rx="0.8" />
