@@ -26,7 +26,7 @@ export const chat = [
   { who: 'them', text: 'Perfekt, bis Samstag!', time: '09:53' },
 ]
 
-export const ticker = ['Rasenmähen', 'Möbelaufbau', 'Apero für 20', 'Umzugshilfe', 'Reparaturen', 'Einkäufe', 'Hecke schneiden', 'Suppenessen für 50', 'Keller räumen', 'Gartenpflege']
+export const ticker = ['Rasenmähen', 'Möbelaufbau', 'Apero für 20', 'Umzugshilfe', 'Reparaturen', 'Einkäufe', 'Hecke schneiden', 'Keller räumen', 'Gartenpflege']
 
 /* Der Tag: jede Leistung ist eine Szene */
 export const scenes = [
@@ -67,9 +67,9 @@ export const scenes = [
     id: 'apero',
     time: '18:00',
     place: 'Bei deinen Gästen',
-    title: 'Apero & Suppenessen',
-    tag: 'vom gelernten Koch',
-    items: ['Aperos für bis zu 20 Personen', 'Suppenessen für bis zu 50 Personen', 'Einkauf und Vorbereitung inklusive', 'Auf Anfrage – einfach melden'],
+    title: 'Apero für deine Gäste',
+    tag: 'gelernter Koch',
+    items: ['Aperos für bis zu 20 Personen', 'Einkauf und Vorbereitung inklusive', 'Auf Anfrage – einfach melden'],
     img: 'apero',
     alt: 'Apero-Platte mit Früchten, Fleisch und Wein',
     effect: 'warm',
@@ -100,8 +100,8 @@ export const steps = {
 }
 
 export const quote = {
-  line1: 'Du lehnst dich zurück.',
-  line2: 'Ich packe an.',
+  line1: 'Am Abend ist deine Liste',
+  line2: 'kürzer als am Morgen.',
   sig: 'Alex — Frag Alex',
 }
 
@@ -113,7 +113,7 @@ export const pricing = {
     { name: 'Stundensatz', amount: 120, unit: '/ Std.', text: 'Einzeleinsätze und kleinere Aufgaben. Mindestens 1 Stunde.' },
     { name: 'Halber Tag', amount: 420, unit: '/ ~4h', text: 'Garten, Umzugshilfe oder grössere Aufräumaktionen.' },
     { name: 'Ganzer Tag', amount: 820, unit: '/ ~8h', text: 'Projekte, die Raum und Zeit zum Durcharbeiten brauchen.' },
-    { name: 'Apero & Spezial', amount: null, unit: '', text: 'Aperos, Suppenessen und Spezialprojekte kalkuliere ich individuell.' },
+    { name: 'Apero & Spezial', amount: null, unit: '', text: 'Aperos und Spezialprojekte kalkuliere ich individuell.' },
   ],
   examples: [
     { name: 'Preisbeispiel 01', what: 'IKEA-Schrank aufbauen', text: 'Selber machen: 3–4 Stunden Frust & Werkzeug kaufen. Handwerker: ca. CHF 350–500.', alex: 'Mit Alex: ca. CHF 240 (2 Std.)' },
@@ -127,8 +127,8 @@ export const about = {
   title: 'Hallo, ich bin Alex.',
   paras: [
     'Ich bin jemand, der gerne anpackt. Egal ob im Garten, im Haushalt oder beim Heimwerken: Was ich tue, mache ich gründlich, mit Sorgfalt und einem guten Schuss Humor.',
-    'Handwerklich bin ich vielseitig unterwegs – vom Möbelaufbau über Reparaturen bis zur Gartenarbeit. Und als gelernter Koch bringe ich auf Anfrage auch Aperos oder Suppenessen für deine Gäste auf den Tisch.',
-    'Viele meiner Kunden kommen über persönliche Empfehlungen. Darauf bin ich stolz, weil es zeigt: Die Zusammenarbeit funktioniert. Ich reagiere schnell, bin flexibel und halte, was ich verspreche.',
+    'Handwerklich bin ich vielseitig unterwegs – vom Möbelaufbau über Reparaturen bis zur Gartenarbeit. Und als gelernter Koch übernehme ich auf Anfrage auch den Apero, wenn du Gäste hast.',
+    'Frag Alex ist neu – und genau das ist mein Antrieb: Jeder Einsatz soll so gut sein, dass du mich weiterempfiehlst. Ich reagiere schnell, bin flexibel und halte, was ich verspreche.',
   ],
   highlights: ['Handwerklich geschickt', 'Zuverlässig & pünktlich', 'Vielseitig einsetzbar', 'Kurzfristig verfügbar', 'Gelernter Koch'],
 }
@@ -137,7 +137,7 @@ export const faq = {
   label: 'Häufige Fragen',
   title: 'Gut zu wissen.',
   list: [
-    { q: 'Was kostet eine Stunde bei Frag Alex?', a: 'Der Stundensatz liegt bei CHF 120. Für einen halben Tag (ca. 4 Stunden) berechne ich CHF 420, für einen ganzen Tag CHF 820. Aperos, Suppenessen und Spezialprojekte kalkuliere ich individuell – am besten einfach anfragen. Aktuell bin ich MWST-befreit.' },
+    { q: 'Was kostet eine Stunde bei Frag Alex?', a: 'Der Stundensatz liegt bei CHF 120. Für einen halben Tag (ca. 4 Stunden) berechne ich CHF 420, für einen ganzen Tag CHF 820. Aperos und Spezialprojekte kalkuliere ich individuell – am besten einfach anfragen. Aktuell bin ich MWST-befreit.' },
     { q: 'Wie schnell kann Alex einen Termin einrichten?', a: 'Oft klappt es innerhalb weniger Tage; bei dringenden Sachen manchmal schon am nächsten Tag. Am besten per WhatsApp melden – ich antworte in der Regel innert Stunden.' },
     { q: 'In welchem Gebiet ist Alex unterwegs?', a: 'Mein Ausgangspunkt ist Langnau am Albis. Von dort bin ich in der ganzen Region unterwegs – bis Stadt Zürich und Agglomeration. Weiter weg (z.B. Toggenburg) komme ich auf Anfrage gerne. Die Anfahrt bis 30 Minuten ab Langnau am Albis ist kostenlos.' },
     { q: 'Wie kann ich bezahlen?', a: 'Ich stelle dir nach dem Einsatz eine Rechnung. Aktuell bin ich MWST-befreit, das heisst du zahlst genau das, was abgemacht war – ohne Aufschläge.' },

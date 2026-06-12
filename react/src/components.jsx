@@ -308,16 +308,23 @@ export function About() {
           Hallo, ich bin <span className="serif">Alex.</span>
         </h2>
       </Reveal>
-      <Reveal><p className="about-lead">{C.about.paras[0]}</p></Reveal>
-      <Reveal className="about-cols">
-        <p>{C.about.paras[1]}</p>
-        <p>{C.about.paras[2]}</p>
-      </Reveal>
-      <Reveal as="ul" className="about-checks">
-        {C.about.highlights.map((h) => (
-          <li key={h}><Icon id="i-check" /> {h}</li>
-        ))}
-      </Reveal>
+      <div className="about-grid">
+        <Reveal className="about-photo">
+          <img src="alex.jpg" alt="Alex – dein Allrounder für Haus, Garten und Gäste" width="880" height="1200" loading="lazy" />
+        </Reveal>
+        <div>
+          <Reveal><p className="about-lead">{C.about.paras[0]}</p></Reveal>
+          <Reveal className="about-cols" delay={0.08}>
+            <p>{C.about.paras[1]}</p>
+            <p>{C.about.paras[2]}</p>
+          </Reveal>
+          <Reveal as="ul" className="about-checks" delay={0.14}>
+            {C.about.highlights.map((h) => (
+              <li key={h}><Icon id="i-check" /> {h}</li>
+            ))}
+          </Reveal>
+        </div>
+      </div>
     </section>
   )
 }
