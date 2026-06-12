@@ -100,8 +100,8 @@ export const steps = {
 }
 
 export const quote = {
-  line1: 'Am Abend ist deine Liste',
-  line2: 'kürzer als am Morgen.',
+  line1: 'Du musst nicht alles',
+  line2: 'selber machen.',
   sig: 'Alex — Frag Alex',
 }
 

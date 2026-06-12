@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import {
   Nav, Hero, ServicesIndex, Ablauf, Quote, Preise,
-  About, Faq, Area, Contact, Footer,
+  About, Faq, Area, Contact, Footer, EdgeChecklist,
 } from './components'
 
 export default function App() {
@@ -30,6 +30,7 @@ export default function App() {
     <>
       <a href="#main" className="skip-link">Zum Inhalt springen</a>
       <Nav theme={theme} onToggleTheme={toggleTheme} />
+      <EdgeChecklist />
       <main id="main">
         <Hero />
         <ServicesIndex />

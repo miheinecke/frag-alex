@@ -49,7 +49,12 @@
       "Read(//Users/micheletisch/**)",
       "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npm run build --prefix react)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap\")",
-      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npm run build --prefix react -- --base=./)"
+      "Bash(PATH=/Users/micheletisch/.local/node/bin:__TRACKED_VAR__ npm run build --prefix react -- --base=./)",
+      "Bash(git config *)",
+      "Bash(git credential-osxkeychain *)",
+      "Bash(git ls-remote *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://fragalex.ch/alex.jpg)",
+      "Bash(curl -s https://fragalex.ch/)"
     ]
   }
 }

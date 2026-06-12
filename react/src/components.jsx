@@ -400,6 +400,58 @@ export function Contact() {
   )
 }
 
+
+/* ───────── Rand-Checkliste · hakt die Seite beim Scrollen ab ───────── */
+const EDGE_SECTIONS = [
+  ['hero', 'Start'],
+  ['leistungen', 'Angebot'],
+  ['ablauf', 'Ablauf'],
+  ['preise', 'Preise'],
+  ['alex', 'Über Alex'],
+  ['faq', 'FAQ'],
+  ['kontakt', 'Kontakt'],
+]
+
+export function EdgeChecklist() {
+  const [done, setDone] = useState(ANIM_OK ? 0 : EDGE_SECTIONS.length)
+  const [onDark, setOnDark] = useState(false)
+  useEffect(() => {
+    const handler = () => {
+      const mid = window.innerHeight * 0.5
+      let idx = 0
+      EDGE_SECTIONS.forEach(([id], i) => {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top <= mid) idx = i
+      })
+      /* Seitenende = alles erledigt */
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 40) idx = EDGE_SECTIONS.length - 1
+      setDone(idx + 1)
+      const k = document.getElementById('kontakt')
+      setOnDark(k ? k.getBoundingClientRect().top <= mid : false)
+    }
+    handler()
+    window.addEventListener('scroll', handler, { passive: true })
+    window.addEventListener('resize', handler)
+    return () => { window.removeEventListener('scroll', handler); window.removeEventListener('resize', handler) }
+  }, [])
+  const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  return (
+    <nav className={`edge${onDark ? ' on-dark' : ''}`} aria-label="Seiten-Fortschritt">
+      <span className="edge-line" aria-hidden="true" />
+      <span className="edge-fill" aria-hidden="true" style={{ height: `${Math.max(0, done - 1) * 44}px` }} />
+      {EDGE_SECTIONS.map(([id, label], i) => (
+        <button key={id} className={`edge-item${i < done ? ' done' : ''}`} onClick={() => go(id)}
+          aria-label={label} aria-current={i === done - 1 ? 'true' : undefined} title={label}>
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <rect x="1" y="1" width="14" height="14" rx="4" />
+            <path d="M4.5 8.4 L7 10.8 L11.5 5.6" />
+          </svg>
+        </button>
+      ))}
+    </nav>
+  )
+}
+
 /* ───────── Footer ───────── */
 export function Footer() {
   return (
